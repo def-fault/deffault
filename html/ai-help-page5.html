@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. 캐릭터와 대화 시작하기</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    html,body{height:auto;overflow-y:auto}
+    .container{padding:20px;max-width:900px;margin:auto}
+    .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+    .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+
+    /* 토글 스위치 최소 CSS */
+    .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+    .toggle-switch input{opacity:0;width:0;height:0}
+    .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+    .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+    input:checked + .slider{background:#409eff}
+    input:checked + .slider:before{transform:translateX(26px)}
+
+    .detailed-info{display:none}.simple-info{display:block}
+    body.detailed-view .detailed-info{display:block}
+    body.detailed-view .simple-info{display:none}
+    a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <!-- 상단 컨트롤러(언어·간단/상세) -->
+  <div class="controllers">
+    <div class="help-level-selector">
+      <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單"></span>
+      <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+      <span class="multi-lang" data-ko="상세" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細"></span>
+    </div>
+    <div class="language-selector">
+      <label class="multi-lang" for="language-select"
+             data-ko="언어:" data-en="Language:" data-ja="言語:"
+             data-zh-Hans="语言：" data-zh-Hant="語言："></label>
+      <select id="language-select">
+        <option value="ko">한국어</option><option value="en">English</option>
+        <option value="ja">日本語</option><option value="zh-Hans">简体中文</option>
+        <option value="zh-Hant">繁體中文</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ■■■  container  ■■■ -->
+  <div class="container">
+    <h2 class="multi-lang"
+        data-ko="🔹 5. 캐릭터와 대화를 시작해보세요!"
+        data-en="🔹 5. Start Chatting with Your Character!"
+        data-ja="🔹 5. キャラクターとの会話を始めよう！"
+        data-zh-Hans="🔹 5. 开始与角色对话！"
+        data-zh-Hant="🔹 5. 開始與角色對話！"></h2>
+
+    <!-- 간단 설명 -->
+    <p class="simple-info multi-lang"
+       data-ko="프리셋을 클릭하면 바로 채팅이 시작돼요. 유저 상태를 설정해 대화 방식을 바꿔보세요."
+       data-en="Click the preset to start chatting. Adjust user status to change how the chat behaves."
+       data-ja="プリセットを選択するとすぐにチャット開始。ユーザー状態を設定して会話の仕方を変えよう。"
+       data-zh-Hans="点击预设即可开始聊天。通过设置用户状态调整对话方式。"
+       data-zh-Hant="點擊預設即可開始聊天。透過設定使用者狀態調整對話方式。"></p>
+
+    <!-- 상세 설명 -->
+<!-- ① 채팅 시작 안내 문장 -->
+<p class="multi-lang"
+  data-ko="이제 준비 완료! &lt;메인&gt; 창에서 방금 만든 캐릭터 프리셋을 클릭하면 실제로 채팅을 시작할 수 있어요. 캐릭터들과 마음껏 실감나는 대화를 나눠보세요. 캐릭터가 먼저 말을 걸어오거나 현실 세계의 시간을 파악하는 등 멋진 상호작용 경험을 얻어가실 수 있을 거예요."
+  data-en="All set! In the <Main> window, click the preset you just created to start chatting for real. Enjoy immersive conversations—your character can even message first or react to real‑world time!"
+  data-ja="準備完了！ <メイン>画面で作成したプリセットをクリックすると本当にチャットが始まります。キャラクターと臨場感ある会話を楽しんでください。先に話しかけてきたり現実の時間を把握したり、面白い相互作用が体験できますよ。"
+  data-zh-Hans="准备就绪！在&lt;主界面&gt;点击刚创建的预设即可真正开始聊天。尽情享受沉浸式对话吧——角色可以先开口，甚至能感知现实时间！"
+  data-zh-Hant="準備就緒！在&lt;主畫面&gt;點擊剛建立的預設即可真正開始聊天。盡情享受身歷其境的對話吧——角色可以先開口，甚至能感知現實時間！"></p>
+
+<!-- ② 상태 기능 개요 문장 -->
+<p class="multi-lang"
+  data-ko="그리고, 상태 기능도 사용해보세요. 유저의 상태는 모든 캐릭터에 동시에 적용되고, 캐릭터의 상태는 그 캐릭터에게만 적용돼요."
+  data-en="Try the status feature as well. Your user status applies to all characters, while a character status affects only that specific character."
+  data-ja="さらに状態機能も使ってみましょう。ユーザー状態はすべてのキャラクターに一括で適用され、キャラクター状態はそのキャラクター個別に適用されます。"
+  data-zh-Hans="另外也可以试试状态功能。用户状态会同时作用于所有角色，而角色状态只影响该角色本身。"
+  data-zh-Hant="另外也可以試試狀態功能。使用者狀態會同時作用於所有角色，而角色狀態只影響該角色本身。"></p>
+
+<!-- ③ 상태 제목 -->
+<h3 class="multi-lang"
+  data-ko="📱 유저/캐릭터 상태 기능 (알림/대화 설정)"
+  data-en="📱 User / Character Status (Notification & Chat Settings)"
+  data-ja="📱 ユーザー／キャラクター状態機能（通知／会話設定）"
+  data-zh-Hans="📱 用户 / 角色状态功能（通知 / 对话设置）"
+  data-zh-Hant="📱 使用者／角色狀態功能（通知／對話設定）"></h3>
+
+	  <!-- ④ 상태 옵션 리스트 (그대로 유지) -->
+	  <ul>
+		<li class="multi-lang"
+			data-ko="🟢 활성화: 캐릭터가 먼저 말을 걸어오고, 알림도 울립니다."
+			data-en="🟢 Active: Character can message first and notifications are on."
+			data-ja="🟢 アクティブ：キャラクターから先に話しかけ、通知も鳴ります。"
+			data-zh-Hans="🟢 激活：角色会先发消息，并且有通知。"
+			data-zh-Hant="🟢 啟用：角色會先發訊息，並且有通知。"></li>
+
+		<li class="multi-lang"
+			data-ko="🟠 방해금지: 캐릭터 메시지는 오지만, 알림은 울리지 않아요."
+			data-en="🟠 Do Not Disturb: Messages arrive but notifications are silent."
+			data-ja="🟠 邪魔しない：メッセージは届くが通知は鳴りません。"
+			data-zh-Hans="🟠 勿扰：消息会来，但没有通知提示。"
+			data-zh-Hant="🟠 勿擾：訊息會來，但沒有通知提示。"></li>
+
+		<li class="multi-lang"
+			data-ko="⚪ 비활성화: 캐릭터로부터 어떤 메시지도 받지 않아요."
+			data-en="⚪ Inactive: You will not receive any messages from the character."
+			data-ja="⚪ 非アクティブ：キャラクターからのメッセージは届きません。"
+			data-zh-Hans="⚪ 关闭：不会收到角色发来的任何消息。"
+			data-zh-Hant="⚪ 關閉：不會收到角色傳來的任何訊息。"></li>
+	  </ul>
+
+
+    <!-- 이전 / 다음 페이지 -->
+    <a class="page-nav prev"
+       href="ai-help-page4.html"
+       data-ko="← 이전: 캐릭터 만들기"
+       data-en="← Previous: Create Character"
+       data-ja="← 前へ：キャラクター作成"
+       data-zh-Hans="← 上一步：创建角色"
+       data-zh-Hant="← 上一步：建立角色"></a>
+
+    <a class="page-nav next"
+       href="ai-help-page6.html"
+       data-ko="다음: 그룹 대화 설정하기 →"
+       data-en="Next: Group Chat Settings →"
+       data-ja="次へ：グループチャット設定 →"
+       data-zh-Hans="下一步：设置群聊 →"
+       data-zh-Hant="下一步：設定群聊 →"></a>
+  </div>
+  <!-- ■■■  container 끝  ■■■ -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      const toggle=document.getElementById('help-level-toggle');
+      const langSel=document.getElementById('language-select');
+      const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+      const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+
+      if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+      langSel.value=savedLang;document.documentElement.lang=savedLang;
+
+      const applyLang=(lng)=>{
+        document.querySelectorAll('.multi-lang').forEach(el=>{
+          const t=el.getAttribute(`data-${lng}`); if(t!==null) el.textContent=t;
+        });
+        document.querySelectorAll('.page-nav').forEach(el=>{
+          const t=el.getAttribute(`data-${lng}`); if(t!==null) el.textContent=t;
+        });
+      };
+      applyLang(savedLang);
+
+      toggle.addEventListener('change',()=>{
+        const v=toggle.checked?'detailed':'simple';
+        localStorage.setItem('desktopMaidHelpLevel',v);
+        document.body.classList.toggle('detailed-view',v==='detailed');
+      });
+      langSel.addEventListener('change',e=>{
+        const lang=e.target.value;
+        localStorage.setItem('desktopMaidLang',lang);
+        document.documentElement.lang=lang;
+        applyLang(lang);
+      });
+    });
+  </script>
+</body>
+</html>
