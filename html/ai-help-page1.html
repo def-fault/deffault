@@ -140,14 +140,31 @@
         data-zh-Hant="您可以選擇以下兩種方式之一：">
       </p>
       <ul>
-        <li class="multi-lang" data-ko="✅ 방법 1: Gemini API 사용하기 (클라우드 기반)"
-            data-en="✅ Method 1: Use Gemini API (Cloud-based)"
-            data-ja="✅ 方法1: Gemini APIの使用(クラウドベース)"
-            data-zh-Hans="✅ 方法一：使用Gemini API（基于云）"
-            data-zh-Hant="✅ 方式一：使用Gemini API（雲端基礎）">
-        
-
-			
+		  
+			<li class="multi-lang"
+			  data-ko="✅ 방법 1: 로컬 AI 모델 사용하기"
+			  data-en="✅ Method 1: Use local AI model "
+			  data-ja="✅ 方法1：ローカルAIモデルを使用"
+			  data-zh-Hans="✅ 方法一：使用本地AI模型"
+			  data-zh-Hant="✅ 方法一：使用本地AI模型">
+			</li>
+			<li class="multi-lang"
+			  data-ko="별도의 추가적인 설정 필요 없이, 앱을 처음 실행했을 때 자동으로 로컬 모델이 설치되고 사용 가능합니다."
+			  data-en='The local model is automatically installed and ready to use when you launch the app for the first time, without any additional setup required.'
+			  data-ja='追加の設定を行う必要はなく、アプリを初めて起動すると自動的にローカルモデルがインストールされ、使用可能になります。'
+			  data-zh-Hans='无需任何额外设置，首次启动应用时会自动安装本地模型并可直接使用。'
+			  data-zh-Hant='無需任何額外設定，首次啟動應用程式時會自動安裝本地模型並可直接使用。'>
+			</li>
+		  
+		  
+			<br>
+		  
+        <li class="multi-lang" data-ko="✅ 방법 2: Gemini API 사용하기 (클라우드 기반)"
+            data-en="✅ Method 2: Use Gemini API (Cloud-based)"
+            data-ja="✅ 方法2: Gemini APIの使用(クラウドベース)"
+            data-zh-Hans="✅ 方法二：使用Gemini API（基于云）"
+            data-zh-Hant="✅ 方式二：使用Gemini API（雲端基礎）">
+        		
 		<li class="multi-lang" 
 			 data-ko='Google Cloud 또는 <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>에서 Gemini API 키를 발급받습니다.'
 			 data-en='Get a Gemini API key from Google Cloud or <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>.'
@@ -169,35 +186,7 @@
 			  data-zh-Hans="输入API密钥并点击“应用”即可完成设置！"
 			  data-zh-Hant="輸入API金鑰並點選「套用」即可完成設定！">
 			</li>
-			<br>
-			<li class="multi-lang"
-			  data-ko="✅ 방법 2: Ollama로 로컬 AI 모델 사용하기"
-			  data-en="✅ Method 2: Use local AI model with Ollama"
-			  data-ja="✅ 方法2：OllamaでローカルAIモデルを使用"
-			  data-zh-Hans="✅ 方法二：使用Ollama本地AI模型"
-			  data-zh-Hant="✅ 方法二：使用Ollama本地AI模型">
-			</li>
-			<li class="multi-lang"
-			  data-ko='<a href="https://ollama.com/" target="_blank">Ollama</a>를 Windows에 설치하고 원하는 모델을 적용합니다.'
-			  data-en='Install <a href="https://ollama.com/" target="_blank">Ollama</a> on Windows and apply your desired model.'
-			  data-ja='Windowsに<a href="https://ollama.com/" target="_blank">Ollama</a>をインストールし、希望するモデルを適用します。'
-			  data-zh-Hans='在Windows上安装<a href="https://ollama.com/" target="_blank">Ollama</a>并应用您想要的模型。'
-			  data-zh-Hant='在Windows上安裝<a href="https://ollama.com/" target="_blank">Ollama</a>並套用所需的模型。'>
-			</li>
-			<li class="multi-lang"
-			  data-ko="👉설치 방법은 해당 설명서를 통해 자세히 확인할 수 있어요."
-			  data-en="👉 You can check the detailed installation guide in the documentation."
-			  data-ja="👉 インストール方法は説明書で詳しく確認できます。"
-			  data-zh-Hans="👉 可以通过该文档详细了解安装方法。"
-			  data-zh-Hant="👉 可以透過該說明文件詳細了解安裝方式。">
-			</li>
-			<li class="multi-lang"
-			  data-ko="‘Ollama 모델이 적용되었습니다.’ 메시지가 나오면 연결 완료!"
-			  data-en="If you see 'Ollama model applied', the connection is complete!"
-			  data-ja="「Ollamaモデルが適用されました」というメッセージが表示されたら接続完了！"
-			  data-zh-Hans="出现“已应用Ollama模型”消息即表示连接完成！"
-			  data-zh-Hant="出現「已套用Ollama模型」訊息即表示連線完成！">
-			</li>
+		  
       </ul>
 		
 		
@@ -249,10 +238,11 @@
       localStorage.setItem('desktopMaidLang', lang);
       document.documentElement.lang = lang;
 
-      document.querySelectorAll('.multi-lang').forEach(el => {
-        const text = el.getAttribute(`data-${lang}`);
-        if (text) el.textContent = text;
-      });
+		document.querySelectorAll('.multi-lang').forEach(el => {
+		  const text = el.getAttribute(`data-${lang}`);
+		  if (text) el.innerHTML = text;  // ✅ textContent → innerHTML로 변경
+		});
+
       document.querySelectorAll('.page-nav').forEach(el => {
         const text = el.getAttribute(`data-${lang}`);
         if (text) el.textContent = text;
