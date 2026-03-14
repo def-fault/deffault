@@ -42,7 +42,7 @@ body {
     border-radius: 50%;
     border: 4px solid #7289da;
     margin-bottom: 20px;
-    background-image: url('images/deffault_profile.png');
+    background-image: url('../images/deffault_profile.png');
     background-size: cover; /* 이미지가 원에 꽉 차도록 설정 */
     background-position: center; /* 이미지가 중앙에 오도록 설정 */
     display: inline-block; /* To center it properly */
