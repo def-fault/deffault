@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. Ï∫êÎ¶≠???ÑÎ¶¨??Ï∂îÍ??òÍ∏∞</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    html,body{height:auto;overflow-y:auto}
+    .container{padding:20px;max-width:900px;margin:auto}
+    .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+    .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+    .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+    .toggle-switch input{opacity:0;width:0;height:0}
+    .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#4f545c;transition:.4s;border-radius:24px}
+    .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background-color:#fff;transition:.4s;border-radius:50%}
+    input:checked+.slider{background-color:#409eff}
+    input:checked+.slider:before{transform:translateX(26px)}
+    .detailed-info{display:none}
+    .simple-info{display:block}
+    body.detailed-view .detailed-info{display:block}
+    body.detailed-view .simple-info{display:none}
+    a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="controllers">
+    <div class="help-level-selector">
+      <span class="multi-lang" data-ko="Í∞ÑÎã®" data-en="Simple" data-ja="Á∞°Êòì" data-zh-Hans="ÁÆÄ?? data-zh-Hant="Á∞°ÂñÆ"></span>
+      <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+      <span class="multi-lang" data-ko="?ÅÏÑ∏" data-en="Detailed" data-ja="Ë©≥Á¥∞" data-zh-Hans="ËØ?ªÜ" data-zh-Hant="Ë©≥Á¥∞"></span>
+    </div>
+    <div class="language-selector">
+      <label for="language-select" class="multi-lang" data-ko="?∏Ïñ¥:" data-en="Language:" data-ja="Ë®ÄË™?" data-zh-Hans="ËØ??Ôº? data-zh-Hant="Ë™ûË?Ôº?></label>
+      <select id="language-select">
+        <option value="ko">?úÍµ≠??/option>
+        <option value="en">English</option>
+        <option value="ja">?•Êú¨Ë™?/option>
+        <option value="zh-Hans">ÁÆÄ‰Ωì‰∏≠??/option>
+        <option value="zh-Hant">ÁπÅÈ´î‰∏?ñá</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="multi-lang" data-ko="?îπ 3. Ï∫êÎ¶≠???ÑÎ¶¨??Ï∂îÍ??òÍ∏∞" data-en="?îπ 3. Add a Character Preset" data-ja="?îπ 3. ??É£?©„ÇØ?ø„Éº?ó„É™?ª„ÉÉ?à„ÇíËøΩÂä†?ô„Çã" data-zh-Hans="?îπ 3. Ê∑ªÂä†ËßíËâ≤È¢ÑË?" data-zh-Hant="?îπ 3. ?∞Â¢ûËßíËâ≤?êË®≠"></h2>
+
+
+	<img src="image/AI_Step3.png" alt="" style="max-width:100%; height:auto;">
+	  
+    <p class="simple-info multi-lang" data-ko="ÏπúÍµ¨ Ï∂îÍ? Î≤ÑÌäº?ºÎ°ú ??Ï∫êÎ¶≠?∞Î? ÎßåÎì§Í≥??±ÎãàÎ∞îÌÄ??ÑÏù¥ÏΩòÏúºÎ°??§Ï†ï???úÏûë?òÏÑ∏??" data-en="Create a new character with the Add Friend button and click the gear icon to customize." data-ja="?åÂèã?îËøΩ?†„Äç„Éú?ø„É≥?ßÊñ∞?ó„ÅÑ??É£?©„ÇØ?ø„Éº?í‰Ωú?ê„Åó?ÅÊ?Ëªä„Ç¢?§„Ç≥?≥„ÅßË®?Æö?íÂßã?Å„Åæ?ó„Çá?Ü„Ä? data-zh-Hans="?πÂáª?úÊ∑ª?†Â??ã‚ÄùÊåâ??àõÂª∫Êñ∞ËßíËâ≤ÔºåÂπ∂?®ÈΩøËΩ?õæ?áÂ?ÂßãË?ÁΩ?Ä? data-zh-Hant="ÈªûÊìä?åÊñ∞Â¢ûÂ??ã„ÄçÊåâ?ïÂª∫Á´ãÊñ∞ËßíËâ≤Ôºå‰∏¶?®ÈΩíËº™ÂúñÁ§∫ÈñãÂßãË®≠ÂÆö„Ä?></p>
+
+    <div class="detailed-info">
+      <p class="multi-lang" data-ko="?õ† ?¥Ï†ú Î≥∏Í≤©?ÅÏúºÎ°??êÏã†ÎßåÏùò Ï∫êÎ¶≠?∞Î? ÎßåÎì§?¥Î¥Ö?úÎã§!" data-en="?õ† Now, let's create your very own character!" data-ja="?õ† ?Ñ„Çà?Ñ„Çà?™ÂàÜ?†„Åë??Ç≠?£„É©??Çø?º„Çí‰Ωú„Å£?¶„Åø?æ„Åó?á„ÅÜÔº? data-zh-Hans="?õ† ?∞Âú®Ê≠£ÂºèÂºÄÂßãÂàõÂª∫Â±û‰∫é‰Ω†?™Â∑±?ÑËßí?≤ÂêßÔº? data-zh-Hant="?õ† ?æÂú®Ê≠£Âºè?ãÂßã?µÂª∫Â±¨Êñº‰Ω†Ëá™Â∑±ÁöÑËßíËâ≤?ßÔºÅ">?õ† ?æÂú®Ê≠£Âºè?ãÂßã?µÂª∫Â±¨Êñº‰Ω†Ëá™Â∑±ÁöÑËßíËâ≤?ßÔºÅ</p>
+	
+      <ul>
+        <li class="multi-lang" data-ko="&lt;Î©îÏù∏&gt; Ï∞ΩÏóê???òÏπúÍµ?Ï∂îÍ???Î≤ÑÌäº???åÎü¨ ??Ï∫êÎ¶≠?∞Î? ?ùÏÑ±?òÏÑ∏??" data-en="In the Main window, click the 'Add Friend' button to create a new character." data-ja="&lt;?°„Ç§??gt;?ªÈù¢?ß„ÄåÂèã?îËøΩ?†„Äç„Éú?ø„É≥?íÊäº?ó„Å¶?∞„Åó?Ñ„Ç≠?£„É©??Çø?º„Çí‰ΩúÊàê?ó„Å¶?è„Å†?ï„ÅÑ?? data-zh-Hans="??lt;‰∏ªÁïå??gt;‰∏?Çπ?ª‚ÄúÊ∑ª?†Â??ã‚ÄùÊåâ??ù•?õÂª∫?∞Ëßí?≤„Ä? data-zh-Hant="??lt;‰∏ªÁï´??gt;‰∏?ªû?ä„ÄåÊñ∞Â¢ûÂ??ã„ÄçÊåâ?ï‰æÜÂª∫Á´ã?∞Ëßí?≤„Ä?></li>
+        <li class="multi-lang" data-ko="Ï∫êÎ¶≠???ÑÎ¶¨???ÑÏóê ÎßàÏö∞?§Î? ?¨Î¶¨Î©??±ÎãàÎ∞îÌÄ??ÑÏù¥ÏΩòÏù¥ ?òÌ??òÏöî." data-en="Hover over the character preset to reveal the gear icon." data-ja="??É£?©„ÇØ?ø„Éº?ó„É™?ª„ÉÉ?à„Å´?´„Éº?Ω„É´?íÂêà?è„Åõ?ã„Å®?ÅÊ?Ëªä„Ç¢?§„Ç≥?≥„ÅåË°®Á§∫?ï„Çå?æ„Åô?? data-zh-Hans="Â∞ÜÈº†?áÊÇ¨?úÂú®ËßíËâ≤È¢ÑË?‰∏äÊó∂‰ºöÊòæÁ§∫ÈΩøËΩ?õæ?á„Ä? data-zh-Hant="Â∞áÊªëÈº†Áßª?∞Ëßí?≤È†êË®?∏ä?ÇÊúÉ?∫ÁèæÈΩíËº™?ñÁ§∫??></li>
+        <li class="multi-lang" data-ko="?ÑÏù¥ÏΩòÏùÑ ?åÎü¨ &lt;Ï∫êÎ¶≠???§Ï†ï&gt; Ï∞ΩÏúºÎ°??§Ïñ¥Í∞ÄÎ©?Ï∫êÎ¶≠???§Ï†ï???úÏûë?????àÏñ¥??" data-en="Click the icon to enter the &lt;Character Settings&gt; window and begin customization." data-ja="?¢„Ç§?≥„É≥?í„ÇØ?™„ÉÉ??Åô?ã„Å®&lt;??É£?©„ÇØ?ø„ÉºË®?Æö&gt;?ªÈù¢?´ÂÖ•?ä„ÄÅË®≠ÂÆö„ÇíÂßã„ÇÅ?â„Çå?æ„Åô?? data-zh-Hans="?πÂáª?æÊ†áËøõÂÖ•&lt;ËßíËâ≤ËÆæÁΩÆ&gt;Á™óÂè£ÔºåÂç≥???ÂßãË?ÁΩ?Ä? data-zh-Hant="ÈªûÊìä?ñÁ§∫?≤ÂÖ•&lt;ËßíËâ≤Ë®?Æö&gt;Ë¶ñÁ™óÔºåÂç≥??ñãÂßãË®≠ÂÆö„Ä?></li>
+      </ul>
+    </div>
+
+    <a class="page-nav prev" href="ai-help-page2.html" data-ko="???¥Ï†Ñ: ?†Ï? ?ÑÎ°ú???§Ï†ï?òÍ∏∞" data-en="??Previous: Set up your user profile" data-ja="???ç„Å∏Ôºö„É¶?º„Ç∂?º„Éó??Éï?£„Éº?´„ÅÆË®?Æö" data-zh-Hans="??‰∏ä‰?Ê≠•ÔºöËÆæÁΩÆ?®Êà∑ËµÑÊñô" data-zh-Hant="??‰∏ä‰?Ê≠•ÔºöË®?Æö‰ΩøÁî®?ÖË≥á??></a>
+    <a class="page-nav next" href="ai-help-page4.html" data-ko="?§Ïùå: ?πÏã†Í≥??®Íªò??Ï∫êÎ¶≠??ÎßåÎì§Í∏??? data-en="Next: Create Your Character ?? data-ja="Ê¨°„Å∏Ôºö„Ç≠?£„É©??Çø?º„Å®??ºöË©±„ÇíÂßã„ÇÅ?à„ÅÜ ?? data-zh-Hans="‰∏ã‰?Ê≠•ÔºöÂºÄÂßã‰∏éËßíËâ≤ÂØπËØù ?? data-zh-Hant="‰∏ã‰?Ê≠•Ôºö?ãÂßã?áËßí?≤Â∞çË©???>Next: Create Your Companion Character ??/a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const helpLevelToggle = document.getElementById('help-level-toggle');
+      const languageSelect = document.getElementById('language-select');
+      const savedLevel = localStorage.getItem('desktopMaidHelpLevel') || 'simple';
+      const savedLang = localStorage.getItem('desktopMaidLang') || 'ko';
+
+      if (savedLevel === 'detailed') {
+        document.body.classList.add('detailed-view');
+        helpLevelToggle.checked = true;
+      }
+
+      languageSelect.value = savedLang;
+      document.documentElement.lang = savedLang;
+
+      const updateLang = (lang) => {
+        document.querySelectorAll('.multi-lang').forEach(el => {
+          const txt = el.getAttribute(`data-${lang}`);
+          if (txt) el.innerHTML = txt;
+        });
+        document.querySelectorAll('.page-nav').forEach(el => {
+          const txt = el.getAttribute(`data-${lang}`);
+          if (txt) el.innerHTML = txt;
+        });
+      };
+
+      updateLang(savedLang);
+
+      helpLevelToggle.addEventListener('change', () => {
+        const level = helpLevelToggle.checked ? 'detailed' : 'simple';
+        localStorage.setItem('desktopMaidHelpLevel', level);
+        document.body.classList.toggle('detailed-view', level === 'detailed');
+      });
+
+      languageSelect.addEventListener('change', e => {
+        const lang = e.target.value;
+        localStorage.setItem('desktopMaidLang', lang);
+        document.documentElement.lang = lang;
+        updateLang(lang);
+      });
+    });
+  </script>
+</body>
+</html>
