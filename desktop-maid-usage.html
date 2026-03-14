@@ -10,13 +10,13 @@
 <body class="usage-body">
     <div class="usage-wrapper">
         <div class="language-selector">
-            <label for="language-select" data-key="language_select_label">?�어 ?�택:</label>
+            <label for="language-select" data-key="language_select_label">언어 선택:</label>
             <select id="language-select">
-                <option value="ko">?�국??/option>
+                <option value="ko">한국어</option>
                 <option value="en">English</option>
-                <option value="ja">?�本�?/option>
-                <option value="zh-Hans">简体中??/option>
-                <option value="zh-Hant">繁體�?��</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
             </select>
         </div>
 
@@ -37,7 +37,7 @@
     </div>
 
     <footer class="usage-footer">
-        <a href="index.html" data-key="back_to_main">메인?�로 ?�아가�?/a>
+        <a href="index.html" data-key="back_to_main">메인으로 돌아가기</a>
     </footer>
 
     <script>
@@ -48,10 +48,10 @@
 
             const translations = {
                 ko: {
-                    language_select_label: '?�어 ?�택:',
-                    desktop_interaction: '?�스?�탑 ?�터?�션',
-                    ai_chat_interaction: 'AI 채팅 ?�터?�션',
-                    back_to_main: '메인?�로 ?�아가�?
+                    language_select_label: '언어 선택:',
+                    desktop_interaction: '데스크탑 인터렉션',
+                    ai_chat_interaction: 'AI 채팅 인터렉션',
+                    back_to_main: '메인으로 돌아가기'
                 },
                 en: {
                     language_select_label: 'Select Language:',
@@ -60,21 +60,21 @@
                     back_to_main: 'Back to Main'
                 },
                 ja: {
-                    language_select_label: '言語選??',
-                    desktop_interaction: '?�ス??��?�プ?�作',
-                    ai_chat_interaction: 'AI?�ャ?�ト?�作',
-                    back_to_main: '?�イ?�に?�る'
+                    language_select_label: '言語選択:',
+                    desktop_interaction: 'デスクトップ操作',
+                    ai_chat_interaction: 'AIチャット操作',
+                    back_to_main: 'メインに戻る'
                 },
                 'zh-Hans': {
-                    language_select_label: '?�择�??:',
+                    language_select_label: '选择语言:',
                     desktop_interaction: '桌面交互',
-                    ai_chat_interaction: 'AI?�天交互',
+                    ai_chat_interaction: 'AI聊天交互',
                     back_to_main: '返回主页'
                 },
                 'zh-Hant': {
-                    language_select_label: '?�擇語�?:',
+                    language_select_label: '選擇語言:',
                     desktop_interaction: '桌面互動',
-                    ai_chat_interaction: 'AI?�天互動',
+                    ai_chat_interaction: 'AI聊天互動',
                     back_to_main: '返回主頁'
                 }
             };
@@ -100,13 +100,13 @@
                 languageSelect.value = 'ko';
             }
             updateLinks(languageSelect.value);
-            updatePageText(languageSelect.value); // ?�이지 ?�스???�데?�트 추�?
+            updatePageText(languageSelect.value); // 페이지 텍스트 업데이트 추가
 
             languageSelect.addEventListener('change', (event) => {
                 const selectedLang = event.target.value;
                 localStorage.setItem('desktopMaidLang', selectedLang);
                 updateLinks(selectedLang);
-                updatePageText(selectedLang); // ?�이지 ?�스???�데?�트 추�?
+                updatePageText(selectedLang); // 페이지 텍스트 업데이트 추가
             });
         });
     </script>
