@@ -3,89 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상호작용 도움말 - 1</title>
+    <title class="multi-lang" data-ko="1. 캐릭터 프리셋 추가하기" data-en="1. Add Character Preset" data-ja="1. キャラクタープリセットの追加" data-zh-Hans="1. 添加角色预设" data-zh-Hant="1. 添加角色預設">1. 캐릭터 프리셋 추가하기</title>
     <link rel="stylesheet" href="./css/style.css">
     <style>
-        html, body { height: auto; overflow-y: auto; }
-        .container { padding: 20px; max-width: 900px; margin: auto; }
-        .controllers {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 25px;
-            height: 60px;
-            width: 100%;
-            padding: 0 40px;
-            background: #23272a;
-            border-bottom: 1px solid #424549;
-            box-sizing: border-box;
-        }
-        .controllers .language-selector,
-        .controllers .help-level-selector {
-            background: none;
-            border: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
-        }
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #4f545c;
-            transition: .4s;
-            border-radius: 24px;
-        }
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 3px;
-            bottom: 3px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-        input:checked + .slider {
-            background-color: #409eff;
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-        .detailed-info { display: none; }
-        .simple-info { display: block; }
-        body.detailed-view .detailed-info { display: block; }
-        body.detailed-view .simple-info { display: none; }
-        a.page-nav { display: inline-block; margin-top: 30px; text-decoration: none; background: #eee; padding: 10px 20px; border-radius: 6px; color: #333; }
+        html,body{height:auto;overflow-y:auto}
+        .container{padding:20px;max-width:900px;margin:auto}
+        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+        .toggle-switch input{opacity:0;width:0;height:0}
+        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+        input:checked + .slider{background:#409eff}
+        input:checked + .slider:before{transform:translateX(26px)}
+        .detailed-info{display:none}.simple-info{display:block}
+        body.detailed-view .detailed-info{display:block}
+        body.detailed-view .simple-info{display:none}
+        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
+        .multi-lang{white-space:pre-line;}
     </style>
 </head>
-<body>
+<body class="usage-body">
     <div class="controllers">
         <div class="help-level-selector">
             <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
-            <label class="toggle-switch">
-                <input type="checkbox" id="help-level-toggle">
-                <span class="slider"></span>
-            </label>
-            <span class="multi-lang" data-ko="상세" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">상세</span>
+            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
         </div>
         <div class="language-selector">
-            <label for="language-select" class="multi-lang" data-ko="언어:" data-en="Language:" data-ja="言語:" data-zh-Hans="语言：" data-zh-Hant="語言：">언어:</label>
             <select id="language-select">
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
@@ -95,59 +40,65 @@
             </select>
         </div>
     </div>
-    <div class="container">
-        <h2 class="multi-lang" data-ko="🔹 상호작용 설정 가이드 (1)" data-en="🔹 Interaction Setup Guide (1)" data-ja="🔹 상호작용 설정 가이드 (1)" data-zh-Hans="🔹 交互设置指南 (1)" data-zh-Hant="🔹 交互設置指南 (1)">🔹 상호작용 설정 가이드 (1)</h2>
-        <img src="image/VRM_Step1.png" alt="" style="max-width:100%; height:auto; border-radius: 8px; border: 1px solid #424549; margin: 20px 0;">
-        <p class="multi-lang" data-ko="캐릭터와 상호작용하는 기본적인 방법을 알아보세요." data-en="Learn the basic ways to interact with the character." data-ja="캐릭터와 상호작용하는 기본적인 방법을 알아보세요." data-zh-Hans="了解与角色交互的基本方法。" data-zh-Hant="了解與角色互動的基本方法。">캐릭터와 상호작용하는 기본적인 방법을 알아보세요.</p>
+
+    <div class="container usage-wrapper">
+        <h1 class="multi-lang" data-ko="1. 캐릭터 프리셋 추가하기" data-en="1. Add Character Preset" data-ja="1. キャラクタープリセットの追加" data-zh-Hans="1. 添加角色预设" data-zh-Hant="1. 添加角色預設">1. 캐릭터 프리셋 추가하기</h1>
         
+        <p class="simple-info multi-lang" 
+           data-ko="메인 창 상단의 친구 추가 버튼(+)을 클릭하여 새로운 캐릭터 프리셋을 만들 수 있습니다." 
+           data-en="Click the plus button (+) at the top of the main window to create a new character preset." 
+           data-ja="メインウィンドウ上部のプラスボタン（+）をクリックして、新しいキャラクタープリセットを作成できます。" 
+           data-zh-Hans="点击主窗口顶部的加号按钮 (+) 以创建新的角色预设。" 
+           data-zh-Hant="點擊主窗口頂部的加號按鈕 (+) 以創建新的角色預設。">
+           메인 창 상단의 친구 추가 버튼(+)을 클릭하여 새로운 캐릭터 프리셋을 만들 수 있습니다.
+        </p>
+
         <div class="detailed-info">
-            <ul>
-                <li class="multi-lang" data-ko="클릭 상호작용: 캐릭터를 클릭하여 다양한 반응을 이끌어낼 수 있습니다." data-en="Click Interaction: Click the character to elicit various reactions." data-ja="클릭 상호작용: 캐릭터를 클릭하여 다양한 반응을 이끌어낼 수 있습니다." data-zh-Hans="点击交互：点击角色以诱发各种反应。" data-zh-Hant="點擊互動：點擊角色以誘發各種反應。">클릭 상호작용: 캐릭터를 클릭하여 다양한 반응을 이끌어낼 수 있습니다.</li>
-                <li class="multi-lang" data-ko="드래그 앤 드롭: 캐릭터의 위치를 자유롭게 이동시킬 수 있습니다." data-en="Drag and Drop: Freely move the character's position." data-ja="드래그 앤 드롭: 캐릭터의 위치를 자유롭게 이동시킬 수 있습니다." data-zh-Hans="拖放：自由移动角色的位置。" data-zh-Hant="拖放：自由移動角色的位置。">드래그 앤 드롭: 캐릭터의 위치를 자유롭게 이동시킬 수 있습니다.</li>
-            </ul>
+            <p class="multi-lang" 
+               data-ko="캐릭터와 더 많은 상호작용을 기대한다면 여러 명의 캐릭터를 추가해 보세요! 언제든지 상단 (+) 아이콘만 누르면 됩니다." 
+               data-en="Add multiple characters for more interactions! Just click the (+) icon at the top anytime." 
+               data-ja="さらに多くのインタラクションを期待するなら、複数のキャラクターを追加してみてください！いつでも上部の（+）アイコンをクリックするだけです。" 
+               data-zh-Hans="添加多个角色以进行更多互动！只需随时点击顶部的 (+) 图标即可。" 
+               data-zh-Hant="添加多個角色以進行更多互動！只需隨時點擊頂部的 (+) 圖標即可。">
+               캐릭터와 더 많은 상호작용을 기대한다면 여러 명의 캐릭터를 추가해 보세요! 언제든지 상단 (+) 아이콘만 누르면 됩니다.
+            </p>
         </div>
 
-        <a class="page-nav next multi-lang" href="inter-help-page2.html" data-ko="다음 단계로 →" data-en="To Next Step →" data-ja="다음 단계로 →" data-zh-Hans="下一步 →" data-zh-Hant="下一步 →">다음 단계로 →</a>
+        <img src="./image/VRM_Step1.png" alt="Add Preset Interaction" style="max-width:100%; height:auto; border-radius: 8px; margin: 20px 0; border: 1px solid #424549;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <a class="page-nav multi-lang" href="desktop-maid-usage.html" data-ko="이전" data-en="Back" data-ja="戻る" data-zh-Hans="返回" data-zh-Hant="返回">이전</a>
+            <a class="page-nav multi-lang" href="inter-help-page2.html" data-ko="다음" data-en="Next" data-ja="次へ" data-zh-Hans="下一步" data-zh-Hant="下一步">다음</a>
+        </div>
     </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const helpLevelToggle = document.getElementById('help-level-toggle');
-            const languageSelect = document.getElementById('language-select');
-            const savedLevel = localStorage.getItem('desktopMaidHelpLevel') || 'simple';
-            const savedLang = localStorage.getItem('desktopMaidLang') || 'ko';
+        document.addEventListener('DOMContentLoaded',()=>{
+            const toggle=document.getElementById('help-level-toggle');
+            const langSel=document.getElementById('language-select');
+            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
 
-            if (savedLevel === 'detailed') {
-                document.body.classList.add('detailed-view');
-                helpLevelToggle.checked = true;
-            }
+            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+            langSel.value=savedLang;document.documentElement.lang=savedLang;
 
-            languageSelect.value = savedLang;
-            document.documentElement.lang = savedLang;
-
-            const updateLang = (lang) => {
-                document.querySelectorAll('.multi-lang').forEach(el => {
-                    const txt = el.getAttribute(`data-${lang}`);
-                    if (txt) el.innerHTML = txt;
-                });
-                document.querySelectorAll('.page-nav').forEach(el => {
-                    const txt = el.getAttribute(`data-${lang}`);
-                    if (txt) el.textContent = txt;
+            const applyLang=lang=>{
+                document.querySelectorAll('.multi-lang').forEach(el=>{
+                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
                 });
             };
+            applyLang(savedLang);
 
-            updateLang(savedLang);
-
-            helpLevelToggle.addEventListener('change', () => {
-                const level = helpLevelToggle.checked ? 'detailed' : 'simple';
-                localStorage.setItem('desktopMaidHelpLevel', level);
-                document.body.classList.toggle('detailed-view', level === 'detailed');
+            toggle.addEventListener('change',()=>{
+                const v=toggle.checked?'detailed':'simple';
+                localStorage.setItem('desktopMaidHelpLevel',v);
+                document.body.classList.toggle('detailed-view',v==='detailed');
             });
-
-            languageSelect.addEventListener('change', e => {
-                const lang = e.target.value;
-                localStorage.setItem('desktopMaidLang', lang);
-                document.documentElement.lang = lang;
-                updateLang(lang);
+            langSel.addEventListener('change',e=>{
+                const lang=e.target.value;
+                localStorage.setItem('desktopMaidLang',lang);
+                document.documentElement.lang=lang;
+                applyLang(lang);
             });
         });
     </script>
