@@ -3,90 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="multi-lang" data-ko="5. 유용한 기능" data-en="5. Useful Features" data-ja="5. 便利な機能" data-zh-Hans="5. 实用功能" data-zh-Hant="5. 實用功能">5. 유용한 기능</title>
+    <title>상호작용 도움말 - 5</title>
     <link rel="stylesheet" href="./css/style.css">
     <style>
-        html,body{height:auto;overflow-y:auto}
-        .container{padding:20px;max-width:900px;margin:auto}
-        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
-        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
-        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
-        .toggle-switch input{opacity:0;width:0;height:0}
-        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
-        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
-        input:checked + .slider{background:#409eff}
-        input:checked + .slider:before{transform:translateX(26px)}
-        .detailed-info{display:none}.simple-info{display:block}
-        body.detailed-view .detailed-info{display:block}
-        body.detailed-view .simple-info{display:none}
-        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
-        .multi-lang{white-space:pre-line;}
+        .warning-text { color: #ffeb3b; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="controllers">
-        <div class="help-level-selector">
-            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
-            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
-            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
-        </div>
-        <div class="language-selector">
-            <select id="language-select">
-                <option value="ko">한국어</option>
-                <option value="en">English</option>
-                <option value="ja">日本語</option>
-                <option value="zh-Hans">简体中文</option>
-                <option value="zh-Hant">繁體中文</option>
-            </select>
-        </div>
-    </div>
-
     <div class="container">
-        <h2 class="multi-lang" data-ko="[5] 유용한 기능" data-en="[5] Useful Features" data-ja="[5] 便利な機能" data-zh-Hans="[5] 实用功能" data-zh-Hant="[5] 實用功能">[5] 유용한 기능</h2>
-        <img src="./image/VRM_Step5.png" alt="Features" style="max-width:100%; height:auto; border-radius: 8px; margin: 20px 0; border: 1px solid #424549;">
-        
-        <div class="simple-info">
+        <h2 class="multi-lang" data-ko="🔹 상호작용 설정 가이드 (5)" data-en="🔹 Interaction Setup Guide (5)" data-ja="🔹 상호작용 설정 가이드 (5)" data-zh-Hans="🔹 交互设置指南 (5)" data-zh-Hant="🔹 交互設置指南 (5)">🔹 상호작용 설정 가이드 (5)</h2>
+        <img src="image/VRM_Step5.png" alt="" style="max-width:100%; height:auto; border-radius: 8px; border: 1px solid #424549; margin: 20px 0;">
+        <p class="multi-lang" data-ko="더 편리한 기능들을 활용해 캐릭터와의 시간을 즐겨보세요." data-en="Enjoy your time with the character using more convenient features." data-ja="더 편리한 기능들을 활용해 캐릭터와의 시간을 즐겨보세요." data-zh-Hans="利用更多便捷功能，享受与角色共度的时光。" data-zh-Hant="利用更多便捷功能，享受與角色共度的時光。">더 편리한 기능들을 활용해 캐릭터와의 시간을 즐겨보세요.</p>
+
+        <div class="detailed-info">
             <ul>
-                <li class="multi-lang" data-ko="UI 트레이: 캐릭터만 남기고 UI 숨기기" data-en="UI Tray: Hide UI elements except character" data-ja="UIトレイ: キャラクター以外のUIを隠す" data-zh-Hans="UI 托盘: 隐藏角色以外的 UI" data-zh-Hant="UI 托盤: 隱藏角色以外的 UI">UI 트레이</li>
-                <li class="multi-lang" data-ko="프로필 사진 클릭: 캐릭터 모델 On/Off" data-en="Click Profile Picture: Toggle Character Model" data-ja="プロフィール画像クリック: 表示/非表示切り替え" data-zh-Hans="点击头像: 切换角色显示" data-zh-Hant="點擊頭像: 切換角色顯示">프로필 사진 클릭: 캐릭터 모델 On/Off</li>
+                <li class="multi-lang" data-ko="UI 트레이: 윈도우 작업 표시줄의 트레이 아이콘을 통해 앱을 관리할 수 있습니다." data-en="UI Tray: Manage the app via the tray icon in the Windows taskbar." data-ja="UI 트레이: 윈도우 작업 표시줄의 트레이 아이콘을 통해 앱을 관리할 수 있습니다." data-zh-Hans="UI 托盘：通过 Windows 任务栏中的托盘图标管理应用。" data-zh-Hant="UI 系統列：透過 Windows 工作列中的系統列圖示管理應用。">UI 트레이: 윈도우 작업 표시줄의 트레이 아이콘을 통해 앱을 관리할 수 있습니다.</li>
+                <li class="multi-lang" data-ko="캐릭터 사진: 현재 화면을 캡처하여 캐릭터의 모습을 저장할 수 있습니다." data-en="Character Photo: Capture the current screen and save the character's image." data-ja="캐릭터 사진: 현재 화면을 캡처하여 캐릭터의 모습을 저장할 수 있습니다." data-zh-Hans="角色照片：捕捉当前屏幕并保存角色的图像。" data-zh-Hant="角色照片：擷取目前螢幕並儲存角色的影像。">캐릭터 사진: 현재 화면을 캡처하여 캐릭터의 모습을 저장할 수 있습니다.</li>
+                <li class="multi-lang" data-ko="글로벌 스케일: '전체 크기 x 개별 크기'로 최종 캐릭터 크기가 결정되니 주의하세요!" data-en="Global Scale: Note that final character size is determined by 'Global Scale x Individual Size'!" data-ja="글로벌 스케일: '전체 크기 x 개별 크기'로 최종 캐릭터 크기가 결정되니 주의하세요!" data-zh-Hans="全局缩放：请注意，最终角色尺寸由“全局缩放 x 个别尺寸”决定！" data-zh-Hant="全域縮放：請注意，最終角色尺寸由「全域縮放 x 個別尺寸」決定！">글로벌 스케일: '전체 크기 x 개별 크기'로 최종 캐릭터 크기가 결정되니 주의하세요!</li>
             </ul>
         </div>
 
-        <div style="display: flex; justify-content: space-between;">
-            <a class="page-nav multi-lang" href="inter-help-page4.html" data-ko="이전" data-en="Prev" data-ja="戻る" data-zh-Hans="上一步" data-zh-Hant="上一步">이전</a>
-            <a class="page-nav multi-lang" href="desktop-maid-usage.html" data-ko="처음으로" data-en="Back to Start" data-ja="最初に戻る" data-zh-Hans="返回开始" data-zh-Hant="返回開始">처음으로</a>
-        </div>
+        <a class="page-nav prev multi-lang" href="inter-help-page4.html" data-ko="← 이전 단계" data-en="← Prev Step" data-ja="← 이전 단계" data-zh-Hans="← 上一步" data-zh-Hant="← 上一步">← 이전 단계</a>
+        <a class="page-nav next multi-lang" href="ui_help_configuration.html" data-ko="다음: 환경설정 가이드 →" data-en="Next: Settings Guide →" data-ja="다음: 환경설정 가이드 →" data-zh-Hans="下一步：设置指南 →" data-zh-Hant="下一步：設定指南 →">다음: 환경설정 가이드 →</a>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded',()=>{
-            const toggle=document.getElementById('help-level-toggle');
-            const langSel=document.getElementById('language-select');
-            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
-            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
-
-            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
-            langSel.value=savedLang;document.documentElement.lang=savedLang;
-
-            const applyLang=lang=>{
-                document.querySelectorAll('.multi-lang').forEach(el=>{
-                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
-                });
-            };
-            applyLang(savedLang);
-
-            toggle.addEventListener('change',()=>{
-                const v=toggle.checked?'detailed':'simple';
-                localStorage.setItem('desktopMaidHelpLevel',v);
-                document.body.classList.toggle('detailed-view',v==='detailed');
-            });
-            langSel.addEventListener('change',e=>{
-                const lang=e.target.value;
-                localStorage.setItem('desktopMaidLang',lang);
-                document.documentElement.lang=lang;
-                applyLang(lang);
-            });
-        });
-    </script>
+    <script src="./js/common-help.js"></script>
 </body>
 </html>

@@ -1,94 +1,160 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="multi-lang" data-ko="7. 튜토리얼 완료!" data-en="7. Tutorial Complete!" data-ja="7. チュートリアル完了！" data-zh-Hans="7. 教程完成！" data-zh-Hant="7. 教程完成！">7. 튜토리얼 완료!</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <style>
-        html,body{height:auto;overflow-y:auto}
-        .container{padding:20px;max-width:900px;margin:auto}
-        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
-        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
-        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
-        .toggle-switch input{opacity:0;width:0;height:0}
-        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
-        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
-        input:checked + .slider{background:#409eff}
-        input:checked + .slider:before{transform:translateX(26px)}
-        .detailed-info{display:none}.simple-info{display:block}
-        body.detailed-view .detailed-info{display:block}
-        body.detailed-view .simple-info{display:none}
-        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
-        .multi-lang{white-space:pre-line;}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. 알아두면 좋은 기능</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    html,body{height:auto;overflow-y:auto}
+    .container{padding:20px;max-width:900px;margin:auto}
+    .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+    .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+    .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+    .toggle-switch input{opacity:0;width:0;height:0}
+    .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+    .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+    input:checked + .slider{background:#409eff}
+    input:checked + .slider:before{transform:translateX(26px)}
+    .detailed-info{display:none}.simple-info{display:block}
+    body.detailed-view .detailed-info{display:block}
+    body.detailed-view .simple-info{display:none}
+    a.page-nav { display: inline-block; margin-top: 30px; text-decoration: none; background: #eee; padding: 10px 20px; border-radius: 6px; color: #333; }
+  </style>
 </head>
-<body class="usage-body">
-    <div class="controllers">
-        <div class="help-level-selector">
-            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
-            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
-            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
-        </div>
-        <div class="language-selector">
-            <select id="language-select">
-                <option value="ko">한국어</option>
-                <option value="en">English</option>
-                <option value="ja">日本語</option>
-                <option value="zh-Hans">简体中文</option>
-                <option value="zh-Hant">繁體中文</option>
-            </select>
-        </div>
+<body>
+  <div class="controllers">
+    <div class="help-level-selector">
+      <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+      <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+      <span class="multi-lang" data-ko="상세" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">상세</span>
     </div>
-
-    <div class="container usage-wrapper">
-        <h1 class="multi-lang" data-ko="7. 튜토리얼 완료!" data-en="7. Tutorial Complete!" data-ja="7. チュートリアル完了！" data-zh-Hans="7. 教程完成！" data-zh-Hant="7. 教程完成！">7. 튜토리얼 완료!</h1>
-        
-        <p class="simple-info multi-lang" 
-           data-ko="축하합니다! 이제 데스크탑 메이드와 즐거운 시간을 보낼 준비가 끝났습니다." 
-           data-en="Congratulations! You're all set to have a great time with your Desktop Maid." 
-           data-ja="おめでとうございます！これでデスクトップメイドと楽しい時間を過ごす準備が整いました。" 
-           data-zh-Hans="恭喜！您现在已经准备好与您的桌面女仆共度美好时光了。" 
-           data-zh-Hant="恭喜！您現在已經準備好與您的桌面女僕共度美好時光了。">
-           축하합니다! 이제 데스크탑 메이드와 즐거운 시간을 보낼 준비가 끝났습니다.
-        </p>
-
-        <img src="./image/AI_Step7.png" alt="Tutorial Complete" class="help-image" style="max-width: 400px; display: block; margin: 20px auto; border-radius: 8px;">
-
-        <div style="display: flex; justify-content: center;">
-            <a class="page-nav multi-lang" href="desktop-maid-usage.html" data-ko="완료" data-en="Finish" data-ja="完了" data-zh-Hans="完成" data-zh-Hant="完成">완료</a>
-        </div>
+    <div class="language-selector">
+      <label class="multi-lang" for="language-select"
+        data-ko="언어:" data-en="Language:" data-ja="言語:"
+        data-zh-Hans="语言：" data-zh-Hant="語言：">언어:</label>
+      <select id="language-select">
+        <option value="ko">한국어</option><option value="en">English</option>
+        <option value="ja">日本語</option><option value="zh-Hans">简体中文</option>
+        <option value="zh-Hant">繁體中文</option>
+      </select>
     </div>
+  </div>
+  <div class="container">
+    <h2 class="multi-lang"
+        data-ko="⭐ 알아두면 좋은 기능"
+        data-en="⭐ Useful Features Worth Knowing"
+        data-ja="⭐ 知っておくと便利な機能"
+        data-zh-Hans="⭐ 实用功能一览"
+        data-zh-Hant="⭐ 實用功能一覽">⭐ 알아두면 좋은 기능</h2>
 
-    <script>
-        document.addEventListener('DOMContentLoaded',()=>{
-            const toggle=document.getElementById('help-level-toggle');
-            const langSel=document.getElementById('language-select');
-            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
-            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+<img src="image/AI_Step7.png" alt="" style="max-width:100%; height:auto; border-radius: 8px; border: 1px solid #424549; margin: 20px 0;">
+	  
+    <div class="simple-info multi-lang" 
+         data-ko="📂 프리셋 공유, ➖미니멀 윈도우, 🖥️ AI 화면 인식 등 유용한 도구들을 활용해 보세요." 
+         data-en="Explore useful tools like 📂 Preset Sharing, ➖ Minimal Window, and 🖥️ AI Screen Recognition.">
+      <ul>
+        <li class="multi-lang"
+          data-ko="📂 프리셋 공유 (캐릭터 창) — 내가 만든 캐릭터를 파일로 주고받을 수 있어요. (VRM 모델 제외)"
+          data-en="📂 Preset Sharing (Character window) — Exchange character presets via files. (VRM model not included)"
+          data-ja="📂 プリ셋 공유 (캐릭터 창) — 내가 만든 캐릭터를 파일로 주고받을 수 있어요. (VRM 모델 제외)"
+          data-zh-Hans="📂 预设共享（角色窗口）— 可通过文件交换角色预设。（不包含 VRM 模型）"
+          data-zh-Hant="📂 預設共享（角色視窗）— 可透過檔案交換角色預設。（不含 VRM 模型）">📂 프리셋 공유 (캐릭터 창) — 내가 만든 캐릭터를 파일로 주고받을 수 있어요. (VRM 모델 제외)</li>
+		 <li class="multi-lang"
+		  data-ko="➖미니멀 윈도우 (메인 창) — 앱의 핵심 기능만 남도록 UI창을 최소화해요."
+		  data-en="➖Minimal Window (Main Window) — The UI window is minimized to leave only the essential features of the app."
+		  data-ja="➖미니멀 윈도우 (메인 창) — 앱의 핵심 기능만 남도록 UI창을 최소화해요."
+		  data-zh-Hans="➖最小化窗口（主窗口）— 窗口被最小化，只保留应用程序的核心功能。"
+		  data-zh-Hant="➖最小化窗口（主窗口）— 窗口被最小化，只保留應用程式的核心功能。">➖미니멀 윈도우 — 앱의 핵심 기능만 남도록 UI창을 최소화해요. </li>
+		  <li class="multi-lang"
+			  data-ko="🖥️ AI 화면 인식 (환경설정) — 화면 상황을 인식해 캐릭터가 먼저 말을 걸어옵니다."
+			  data-en="🖥️ AI Screen Recognition (Settings) — The character reads your screen and may start conversations first."
+			  data-ja="🖥️ AI 화면 인식 (환경설정) — 화면 상황을 인식해 캐릭터가 먼저 말을 걸어옵니다."
+			  data-zh-Hans="🖥️ AI 屏幕识别（设置）— 角色能识别你的屏幕并主动对话。"
+			  data-zh-Hant="🖥️ AI 螢幕辨識（設定）— 角色可辨識螢幕並主動對話。">🖥️ AI 화면 인식 (환경설정) — 화면 상황을 인식해 캐릭터가 먼저 말을 걸어옵니다.
+		  </li>
+		  <li class="multi-lang"
+			  data-ko="※ API 사용 시 민감정보 노출에 주의!"
+			  data-en="※ If you use a cloud API, be careful not to reveal sensitive info!"
+			  data-ja="※ API 사용 시 민감정보 노출에 주의!"
+			  data-zh-Hans="※ 使用云端 API 时注意隐私泄露！"
+			  data-zh-Hant="※ 使用雲端 API 時注意隱私外洩！"> ※ API 사용 시 민감정보 노출에 주의!
+		  </li>
+      </ul>
+    </div>
+    <div class="detailed-info">
+      <ul>
+        <li class="multi-lang"
+          data-ko="📂 프리셋 공유 (캐릭터 창) — 내가 만든 캐릭터를 파일로 주고받을 수 있어요. (VRM 모델 제외)"
+          data-en="📂 Preset Sharing (Character window) — Exchange character presets via files. (VRM model not included)"
+          data-ja="📂 プリ셋 공유 (캐릭터 창) — 내가 만든 캐릭터를 파일로 주고받을 수 있어요. (VRM 모델 제외)"
+          data-zh-Hans="📂 预设共享（角色窗口）— 可通过文件交换角色预设。（不包含 VRM 模型）"
+          data-zh-Hant="📂 預設共享（角色視窗）— 可透過檔案交換角色預設。（不含 VRM 模型）">📂 프리셋 공유 (캐릭터 창) — 내가 만든 캐릭터를 파일로 주고받을 수 있어요. (VRM 모델 제외)</li>
+		 <li class="multi-lang"
+		  data-ko="➖미니멀 윈도우 (메인 창) — 앱의 핵심 기능만 남도록 UI창을 최소화해요."
+		  data-en="➖Minimal Window (Main Window) — The UI window is minimized to leave only the essential features of the app."
+		  data-ja="➖미니멀 윈도우 (메인 창) — 앱의 핵심 기능만 남도록 UI창을 최소화해요."
+		  data-zh-Hans="➖最小化窗口（主窗口）— 窗口被最小化，只保留应用程序的核心功能。"
+		  data-zh-Hant="➖最小化窗口（主窗口）— 窗口被最小化，只保留應用程式的核心功能。">➖미니멀 윈도우 — 앱의 핵심 기능만 남도록 UI창을 최소화해요. </li>
+	  <li class="multi-lang"
+		  data-ko="🖥️ AI 화면 인식 (환경설정) — 화면 상황을 인식해 캐릭터가 먼저 말을 걸어옵니다."
+		  data-en="🖥️ AI Screen Recognition (Settings) — The character reads your screen and may start conversations first."
+		  data-ja="🖥️ AI 화면 인식 (환경설정) — 화면 상황을 인식해 캐릭터가 먼저 말을 걸어옵니다."
+		  data-zh-Hans="🖥️ AI 屏幕识别（设置）— 角色能识别你的屏幕并主动对话。"
+		  data-zh-Hant="🖥️ AI 螢幕辨識（設定）— 角色可辨識螢幕並主動對話。">🖥️ AI 화면 인식 (환경설정) — 화면 상황을 인식해 캐릭터가 먼저 말을 걸어옵니다.
+	  </li>
+	  <li class="multi-lang"
+		  data-ko="※ API 사용 시 민감정보 노출에 주의!"
+		  data-en="※ If you use a cloud API, be careful not to reveal sensitive info!"
+		  data-ja="※ API 사용 시 민감정보 노출에 주의!"
+		  data-zh-Hans="※ 使用云端 API 时注意隐私泄露！"
+		  data-zh-Hant="※ 使用雲端 API 時注意隱私外洩！">※ API 사용 시 민감정보 노출에 주의!
+	  </li>
+      </ul>
+    </div>
+    <a class="page-nav prev multi-lang" href="ai-help-page6.html"
+       data-ko="← 이전: 그룹 대화 설정"
+       data-en="← Previous: Group Chat"
+       data-ja="← 이전: 그룹 대화 설정"
+       data-zh-Hans="← 上一步：群聊设置"
+       data-zh-Hant="← 上一步：群聊設定">← 이전: 그룹 대화 설정</a>
 
-            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
-            langSel.value=savedLang;document.documentElement.lang=savedLang;
-
-            const applyLang=lang=>{
-                document.querySelectorAll('.multi-lang').forEach(el=>{
-                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
-                });
-            };
-            applyLang(savedLang);
-
-            toggle.addEventListener('change',()=>{
-                const v=toggle.checked?'detailed':'simple';
-                localStorage.setItem('desktopMaidHelpLevel',v);
-                document.body.classList.toggle('detailed-view',v==='detailed');
-            });
-            langSel.addEventListener('change',e=>{
-                const lang=e.target.value;
-                localStorage.setItem('desktopMaidLang',lang);
-                document.documentElement.lang=lang;
-                applyLang(lang);
-            });
+    <a class="page-nav next multi-lang" href="desktop-maid-usage.html"
+       data-ko="처음으로 돌아가기 →"
+       data-en="Back to Start →"
+       data-ja="처음으로 돌아가기 →"
+       data-zh-Hans="返回首页 →"
+       data-zh-Hant="返回首頁 →">처음으로 돌아가기 →</a>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      const toggle=document.getElementById('help-level-toggle');
+      const langSel=document.getElementById('language-select');
+      const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+      const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+      if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+      langSel.value=savedLang;document.documentElement.lang=savedLang;
+      const applyLang=(lng)=>{
+        document.querySelectorAll('.multi-lang').forEach(el=>{
+          const t=el.getAttribute(`data-${lng}`); if(t!==null) el.innerHTML=t;
         });
-    </script>
+        document.querySelectorAll('.page-nav').forEach(el=>{
+          const t=el.getAttribute(`data-${lng}`); if(t!==null) el.textContent=t;
+        });
+      };
+      applyLang(savedLang);
+      toggle.addEventListener('change',()=>{
+        const v=toggle.checked?'detailed':'simple';
+        localStorage.setItem('desktopMaidHelpLevel',v);
+        document.body.classList.toggle('detailed-view',v==='detailed');
+      });
+      langSel.addEventListener('change',e=>{
+        const lang=e.target.value;
+        localStorage.setItem('desktopMaidLang',lang);
+        document.documentElement.lang=lang;
+        applyLang(lang);
+      });
+    });
+  </script>
 </body>
 </html>
