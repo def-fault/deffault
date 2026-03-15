@@ -5,8 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상호작용 도움말 - 1</title>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        html, body { height: auto; overflow-y: auto; }
+        .container { padding: 20px; max-width: 900px; margin: auto; }
+        .controllers {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 25px;
+            height: 60px;
+            width: 100%;
+            padding: 0 40px;
+            background: #23272a;
+            border-bottom: 1px solid #424549;
+            box-sizing: border-box;
+        }
+        .controllers .language-selector,
+        .controllers .help-level-selector {
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #4f545c;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #409eff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .detailed-info { display: none; }
+        .simple-info { display: block; }
+        body.detailed-view .detailed-info { display: block; }
+        body.detailed-view .simple-info { display: none; }
+        a.page-nav { display: inline-block; margin-top: 30px; text-decoration: none; background: #eee; padding: 10px 20px; border-radius: 6px; color: #333; }
+    </style>
 </head>
 <body>
+    <div class="controllers">
+        <div class="help-level-selector">
+            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="help-level-toggle">
+                <span class="slider"></span>
+            </label>
+            <span class="multi-lang" data-ko="상세" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">상세</span>
+        </div>
+        <div class="language-selector">
+            <label for="language-select" class="multi-lang" data-ko="언어:" data-en="Language:" data-ja="言語:" data-zh-Hans="语言：" data-zh-Hant="語言：">언어:</label>
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+    </div>
     <div class="container">
         <h2 class="multi-lang" data-ko="🔹 상호작용 설정 가이드 (1)" data-en="🔹 Interaction Setup Guide (1)" data-ja="🔹 상호작용 설정 가이드 (1)" data-zh-Hans="🔹 交互设置指南 (1)" data-zh-Hant="🔹 交互設置指南 (1)">🔹 상호작용 설정 가이드 (1)</h2>
         <img src="image/VRM_Step1.png" alt="" style="max-width:100%; height:auto; border-radius: 8px; border: 1px solid #424549; margin: 20px 0;">
@@ -21,6 +109,47 @@
 
         <a class="page-nav next multi-lang" href="inter-help-page2.html" data-ko="다음 단계로 →" data-en="To Next Step →" data-ja="다음 단계로 →" data-zh-Hans="下一步 →" data-zh-Hant="下一步 →">다음 단계로 →</a>
     </div>
-    <script src="./js/common-help.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const helpLevelToggle = document.getElementById('help-level-toggle');
+            const languageSelect = document.getElementById('language-select');
+            const savedLevel = localStorage.getItem('desktopMaidHelpLevel') || 'simple';
+            const savedLang = localStorage.getItem('desktopMaidLang') || 'ko';
+
+            if (savedLevel === 'detailed') {
+                document.body.classList.add('detailed-view');
+                helpLevelToggle.checked = true;
+            }
+
+            languageSelect.value = savedLang;
+            document.documentElement.lang = savedLang;
+
+            const updateLang = (lang) => {
+                document.querySelectorAll('.multi-lang').forEach(el => {
+                    const txt = el.getAttribute(`data-${lang}`);
+                    if (txt) el.innerHTML = txt;
+                });
+                document.querySelectorAll('.page-nav').forEach(el => {
+                    const txt = el.getAttribute(`data-${lang}`);
+                    if (txt) el.textContent = txt;
+                });
+            };
+
+            updateLang(savedLang);
+
+            helpLevelToggle.addEventListener('change', () => {
+                const level = helpLevelToggle.checked ? 'detailed' : 'simple';
+                localStorage.setItem('desktopMaidHelpLevel', level);
+                document.body.classList.toggle('detailed-view', level === 'detailed');
+            });
+
+            languageSelect.addEventListener('change', e => {
+                const lang = e.target.value;
+                localStorage.setItem('desktopMaidLang', lang);
+                document.documentElement.lang = lang;
+                updateLang(lang);
+            });
+        });
+    </script>
 </body>
 </html>

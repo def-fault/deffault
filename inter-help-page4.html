@@ -5,23 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상호작용 도움말 - 4</title>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        html, body { height: auto; overflow-y: auto; }
+        .container { padding: 20px; max-width: 900px; margin: auto; }
+        .controllers {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 25px;
+            height: 60px;
+            width: 100%;
+            padding: 0 40px;
+            background: #23272a;
+            border-bottom: 1px solid #424549;
+            box-sizing: border-box;
+        }
+        .controllers .language-selector,
+        .controllers .help-level-selector {
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #4f545c;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #409eff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .detailed-info { display: none; }
+        .simple-info { display: block; }
+        body.detailed-view .detailed-info { display: block; }
+        body.detailed-view .simple-info { display: none; }
+        a.page-nav { display: inline-block; margin-top: 30px; text-decoration: none; background: #eee; padding: 10px 20px; border-radius: 6px; color: #333; }
+    </style>
 </head>
 <body>
+    <div class="controllers">
+        <div class="help-level-selector">
+            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="help-level-toggle">
+                <span class="slider"></span>
+            </label>
+            <span class="multi-lang" data-ko="상세" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">상세</span>
+        </div>
+        <div class="language-selector">
+            <label for="language-select" class="multi-lang" data-ko="언어:" data-en="Language:" data-ja="言語:" data-zh-Hans="语言：" data-zh-Hant="語言：">언어:</label>
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+    </div>
     <div class="container">
-        <h2 class="multi-lang" data-ko="🔹 상호작용 설정 가이드 (4)" data-en="🔹 Interaction Setup Guide (4)" data-ja="🔹 상호작용 설정 가이드 (4)" data-zh-Hans="🔹 交互设置指南 (4)" data-zh-Hant="🔹 交互設置指南 (4)">🔹 상호작용 설정 가이드 (4)</h2>
+        <h2 class="multi-lang" data-ko="🔹 상호작용 설정 가이드 (4)" data-en="🔹 Interaction Setup Guide (4)" data-ja="🔹 インタラクション設定ガイド (4)" data-zh-Hans="🔹 交互设置指南 (4)" data-zh-Hant="🔹 交互設置指南 (4)">🔹 상호작용 설정 가이드 (4)</h2>
         <img src="image/VRM_Step4.png" alt="" style="max-width:100%; height:auto; border-radius: 8px; border: 1px solid #424549; margin: 20px 0;">
-        <p class="multi-lang" data-ko="캐릭터의 표정과 자세를 직접 제어해 보세요." data-en="Directly control the character's expressions and poses." data-ja="캐릭터의 표정과 자세를 직접 제어해 보세요." data-zh-Hans="直接控制角色的表情和姿势。" data-zh-Hant="直接控制角色的表情和姿勢。">캐릭터의 표정과 자세를 직접 제어해 보세요.</p>
+        <p class="multi-lang" data-ko="음성 인식을 통한 상호작용도 가능합니다." data-en="Interaction via voice recognition is also possible." data-ja="音声認識によるインタラクションも可能です。" data-zh-Hans="也可以通过语音识别进行交互。" data-zh-Hant="也可以透過語音識別進行互動。">음성 인식을 통한 상호작용도 가능합니다.</p>
 
         <div class="detailed-info">
             <ul>
-                <li class="multi-lang" data-ko="표정 변경: 우클릭 메뉴의 '표정' 탭에서 선택할 수 있습니다." data-en="Change Expression: Select from the 'Expressions' tab in the right-click menu." data-ja="표정 변경: 우클릭 메뉴의 '표정' 탭에서 선택할 수 있습니다." data-zh-Hans="更改表情：从右键菜单的“表情”选项卡中选择。" data-zh-Hant="更改表情：從右鍵選單的「表情」選項卡中選擇。">표정 변경: 우클릭 메뉴의 '표정' 탭에서 선택할 수 있습니다.</li>
-                <li class="multi-lang" data-ko="포즈 변경: '포즈' 탭에서 캐릭터의 자세를 변경할 수 있습니다." data-en="Change Pose: Change the character's posture in the 'Pose' tab." data-ja="포즈 변경: '포즈' 탭에서 캐릭터의 자세를 변경할 수 있습니다." data-zh-Hans="更改姿势：在“姿势”选项卡中更改角色的姿势。" data-zh-Hant="更改姿勢：在「姿勢」選項卡中更改角色的姿勢。">포즈 변경: '포즈' 탭에서 캐릭터의 자세를 변경할 수 있습니다.</li>
+                <li class="multi-lang" data-ko="마이크 설정: 설정 메뉴에서 마이크를 활성화하세요." data-en="Microphone Settings: Enable the microphone in the settings menu." data-ja="マイク設定: 設定メニューでマイクを有効にしてください。" data-zh-Hans="麦克风设置：在设置菜单中启用麦克风。" data-zh-Hant="麥克風設定：在設定選單中啟用麥克風。">마이크 설정: 설정 메뉴에서 마이크를 활성화하세요.</li>
+                <li class="multi-lang" data-ko="음성 명령: 정해진 명령어를 말하면 캐릭터가 반응합니다." data-en="Voice Commands: The character reacts when you say specific commands." data-ja="音声コマンド: 特定のコマンドを言うとキャラクターが反応します。" data-zh-Hans="语音命令：说出指定的命令，角色就会做出反应。" data-zh-Hant="語音命令：說出指定的命令，角色就會做出反應。">음성 명령: 정해진 명령어를 말하면 캐릭터가 반응합니다.</li>
             </ul>
         </div>
 
         <a class="page-nav prev multi-lang" href="inter-help-page3.html" data-ko="← 이전 단계" data-en="← Prev Step" data-ja="← 이전 단계" data-zh-Hans="← 上一步" data-zh-Hant="← 上一步">← 이전 단계</a>
         <a class="page-nav next multi-lang" href="inter-help-page5.html" data-ko="다음 단계로 →" data-en="To Next Step →" data-ja="다음 단계로 →" data-zh-Hans="下一步 →" data-zh-Hant="下一步 →">다음 단계로 →</a>
     </div>
-    <script src="./js/common-help.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const helpLevelToggle = document.getElementById('help-level-toggle');
+            const languageSelect = document.getElementById('language-select');
+            const savedLevel = localStorage.getItem('desktopMaidHelpLevel') || 'simple';
+            const savedLang = localStorage.getItem('desktopMaidLang') || 'ko';
+
+            if (savedLevel === 'detailed') {
+                document.body.classList.add('detailed-view');
+                helpLevelToggle.checked = true;
+            }
+
+            languageSelect.value = savedLang;
+            document.documentElement.lang = savedLang;
+
+            const updateLang = (lang) => {
+                document.querySelectorAll('.multi-lang').forEach(el => {
+                    const txt = el.getAttribute(`data-${lang}`);
+                    if (txt) el.innerHTML = txt;
+                });
+                document.querySelectorAll('.page-nav').forEach(el => {
+                    const txt = el.getAttribute(`data-${lang}`);
+                    if (txt) el.textContent = txt;
+                });
+            };
+
+            updateLang(savedLang);
+
+            helpLevelToggle.addEventListener('change', () => {
+                const level = helpLevelToggle.checked ? 'detailed' : 'simple';
+                localStorage.setItem('desktopMaidHelpLevel', level);
+                document.body.classList.toggle('detailed-view', level === 'detailed');
+            });
+
+            languageSelect.addEventListener('change', e => {
+                const lang = e.target.value;
+                localStorage.setItem('desktopMaidLang', lang);
+                document.documentElement.lang = lang;
+                updateLang(lang);
+            });
+        });
+    </script>
 </body>
 </html>
