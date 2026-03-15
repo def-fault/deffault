@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="multi-lang" data-ko="4. 알람 사용하기" data-en="4. Using Alarms" data-ja="4. アラームの使用" data-zh-Hans="4. 使用闹钟" data-zh-Hant="4. 使用鬧鐘">4. 알람 사용하기</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        html,body{height:auto;overflow-y:auto}
+        .container{padding:20px;max-width:900px;margin:auto}
+        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+        .toggle-switch input{opacity:0;width:0;height:0}
+        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+        input:checked + .slider{background:#409eff}
+        input:checked + .slider:before{transform:translateX(26px)}
+        .detailed-info{display:none}.simple-info{display:block}
+        body.detailed-view .detailed-info{display:block}
+        body.detailed-view .simple-info{display:none}
+        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
+        .multi-lang{white-space:pre-line;}
+    </style>
+</head>
+<body>
+    <div class="controllers">
+        <div class="help-level-selector">
+            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
+        </div>
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="multi-lang" data-ko="[4] 알람 사용하기" data-en="[4] Using Alarms" data-ja="[4] アラームの使用" data-zh-Hans="[4] 使用闹钟" data-zh-Hant="[4] 使用鬧鐘">[4] 알람 사용하기</h2>
+        <img src="./image/VRM_Step4.png" alt="Alarm" style="max-width:100%; height:auto; border-radius: 8px; margin: 20px 0; border: 1px solid #424549;">
+        
+        <p class="simple-info multi-lang" 
+           data-ko="사이드바에서 알람을 설정하고 캐릭터와 함께 댄스 파티를 즐겨보세요!" 
+           data-en="Set alarms from the sidebar and enjoy a dance party with the character!" 
+           data-ja="サイドバーでアラームを設定し、キャラクターと一緒にダンスパーティーを楽しみましょう！" 
+           data-zh-Hans="在侧边栏设置闹钟，与角色一起享受舞会吧！" 
+           data-zh-Hant="在側邊欄設置鬧鐘，與角色一起享受舞會吧！">
+           사이드바에서 알람을 설정하고 캐릭터와 함께 댄스 파티를 즐겨보세요!
+        </p>
+
+        <div class="detailed-info">
+            <ul>
+                <li class="multi-lang" data-ko="사이드바의 알람 메뉴 이용" data-en="Use Alarms menu in sidebar" data-ja="サイドバーのアラームメニューを使用" data-zh-Hans="使用侧边栏的闹钟菜单" data-zh-Hant="使用側邊欄의 鬧鐘菜單">사이드바의 알람 메뉴 이용</li>
+                <li class="multi-lang" data-ko="원하는 음악 설정 가능" data-en="Custom music selection available" data-ja="お好みの音楽を設定可能" data-zh-Hans="可以设置喜欢的音乐" data-zh-Hant="可以設置喜歡的音樂">원하는 음악 설정 가능</li>
+                <li class="multi-lang" data-ko="시간이 되면 캐릭터가 춤을 춥니다" data-en="Character dances when time's up" data-ja="時間になるとキャラクターが踊ります" data-zh-Hans="时间到时角色会跳舞" data-zh-Hant="時間到時角色會跳舞">시간이 되면 캐릭터가 춤을 춥니다</li>
+            </ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+            <a class="page-nav multi-lang" href="inter-help-page3.html" data-ko="이전" data-en="Prev" data-ja="戻る" data-zh-Hans="上一步" data-zh-Hant="上一步">이전</a>
+            <a class="page-nav multi-lang" href="inter-help-page5.html" data-ko="다음" data-en="Next" data-ja="次へ" data-zh-Hans="下一步" data-zh-Hant="下一步">다음</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const toggle=document.getElementById('help-level-toggle');
+            const langSel=document.getElementById('language-select');
+            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+
+            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+            langSel.value=savedLang;document.documentElement.lang=savedLang;
+
+            const applyLang=lang=>{
+                document.querySelectorAll('.multi-lang').forEach(el=>{
+                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
+                });
+            };
+            applyLang(savedLang);
+
+            toggle.addEventListener('change',()=>{
+                const v=toggle.checked?'detailed':'simple';
+                localStorage.setItem('desktopMaidHelpLevel',v);
+                document.body.classList.toggle('detailed-view',v==='detailed');
+            });
+            langSel.addEventListener('change',e=>{
+                const lang=e.target.value;
+                localStorage.setItem('desktopMaidLang',lang);
+                document.documentElement.lang=lang;
+                applyLang(lang);
+            });
+        });
+    </script>
+</body>
+</html>

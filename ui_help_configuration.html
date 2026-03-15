@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="multi-lang" data-ko="환경설정 가이드" data-en="Settings Guide" data-ja="設定ガイド" data-zh-Hans="设置指南" data-zh-Hant="設置指南">환경설정 가이드</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        html,body{height:auto;overflow-y:auto}
+        .container{padding:20px;max-width:900px;margin:auto}
+        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+        .toggle-switch input{opacity:0;width:0;height:0}
+        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+        input:checked + .slider{background:#409eff}
+        input:checked + .slider:before{transform:translateX(26px)}
+        .detailed-info{display:none}.simple-info{display:block}
+        body.detailed-view .detailed-info{display:block}
+        body.detailed-view .simple-info{display:none}
+        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
+        .multi-lang{white-space:pre-line;}
+    </style>
+</head>
+<body>
+    <div class="controllers">
+        <div class="help-level-selector">
+            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
+        </div>
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="multi-lang" data-ko="환경설정 주요 기능" data-en="Core Settings" data-ja="主要な設定機能" data-zh-Hans="主要设置功能" data-zh-Hant="主要設置功能">환경설정 주요 기능</h2>
+        
+        <div class="detailed-info">
+            <ul>
+                <li class="multi-lang" data-ko="윈도우 맨 위에: 창을 최상단에 고정" data-en="Always On Top: Fix window to top" data-ja="最前面に表示: ウィンドウを固定" data-zh-Hans="始终置顶: 固定窗口" data-zh-Hant="始終置頂: 固定窗口">윈도우 맨 위에</li>
+                <li class="multi-lang" data-ko="부팅 시 자동 시작" data-en="Auto Start on Boot" data-ja="起動時に自動実行" data-zh-Hans="启动时自动运行" data-zh-Hant="啟動時自動運行">부팅 시 자동 시작</li>
+                <li class="multi-lang" data-ko="스마트 인터렉션: 자동 대화 및 반응" data-en="Smart Interaction: Auto chat & response" data-ja="スマートインタラクション: 自動会話と反応" data-zh-Hans="智能交互: 自动对话与反应" data-zh-Hant="智能交互: 自動對話與反應">스마트 인터렉션</li>
+                <li class="multi-lang" data-ko="AI 화면 인식: 화면 상황 파악" data-en="AI Screen Recognition: Context awareness" data-ja="AI画面認識: 画面状況の把握" data-zh-Hans="AI 屏幕识别: 情境感知" data-zh-Hant="AI 屏幕識別: 情境感知">AI 화면 인식</li>
+            </ul>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <a class="page-nav multi-lang" href="desktop-maid-usage.html" data-ko="처음으로 돌아가기" data-en="Back to Start" data-ja="最初に戻る" data-zh-Hans="返回开始" data-zh-Hant="返回開始">처음으로 돌아가기</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const toggle=document.getElementById('help-level-toggle');
+            const langSel=document.getElementById('language-select');
+            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+
+            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+            langSel.value=savedLang;document.documentElement.lang=savedLang;
+
+            const applyLang=lang=>{
+                document.querySelectorAll('.multi-lang').forEach(el=>{
+                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
+                });
+            };
+            applyLang(savedLang);
+
+            toggle.addEventListener('change',()=>{
+                const v=toggle.checked?'detailed':'simple';
+                localStorage.setItem('desktopMaidHelpLevel',v);
+                document.body.classList.toggle('detailed-view',v==='detailed');
+            });
+            langSel.addEventListener('change',e=>{
+                const lang=e.target.value;
+                localStorage.setItem('desktopMaidLang',lang);
+                document.documentElement.lang=lang;
+                applyLang(lang);
+            });
+        });
+    </script>
+</body>
+</html>

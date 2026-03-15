@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="multi-lang" data-ko="3. 캐릭터 프리셋 추가하기" data-en="3. Add Character Preset" data-ja="3. キャラクタープリセットの追加" data-zh-Hans="3. 添加角色预设" data-zh-Hant="3. 添加角色預設">3. 캐릭터 프리셋 추가하기</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        html,body{height:auto;overflow-y:auto}
+        .container{padding:20px;max-width:900px;margin:auto}
+        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+        .toggle-switch input{opacity:0;width:0;height:0}
+        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+        input:checked + .slider{background:#409eff}
+        input:checked + .slider:before{transform:translateX(26px)}
+        .detailed-info{display:none}.simple-info{display:block}
+        body.detailed-view .detailed-info{display:block}
+        body.detailed-view .simple-info{display:none}
+        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
+        .multi-lang{white-space:pre-line;}
+    </style>
+</head>
+<body class="usage-body">
+    <div class="controllers">
+        <div class="help-level-selector">
+            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
+        </div>
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container usage-wrapper">
+        <h1 class="multi-lang" data-ko="3. 캐릭터 프리셋 추가하기" data-en="3. Add Character Preset" data-ja="3. キャラクタープリセットの追加" data-zh-Hans="3. 添加角色预设" data-zh-Hant="3. 添加角色預設">3. 캐릭터 프리셋 추가하기</h1>
+        
+        <p class="simple-info multi-lang" 
+           data-ko="메인 창에서 친구 추가 버튼을 눌러 새로운 캐릭터 프리셋을 생성해주세요. 그 다음 만들어진 프리셋 위에 마우스를 올리면 나타나는 '톱니바퀴 아이콘'을 눌러 캐릭터 창을 열어주세요." 
+           data-en="Click the 'Add Friend' button in the main window to create a new character preset. Hover over the created preset and click the gear icon to open the character window." 
+           data-ja="メインウィンドウの「フレンド追加」ボタンをクリックして、新しいキャラクタープリセットを作成します。作成されたプリセットの上にマウスを置き、表示されるギアアイコンをクリックしてキャラクターウィンドウを開きます。" 
+           data-zh-Hans="点击主窗口中的“添加好友”按钮以创建新的角色预设。将鼠标悬停在创建的预设上，然后点击齿轮图标以打开角色窗口。" 
+           data-zh-Hant="點擊主窗口中的“添加好友”按鈕以創建新的角色預設。將鼠標懸停在創建的預設上，然後點擊齒輪圖標以打開角色窗口。">
+           메인 창에서 친구 추가 버튼을 눌러 새로운 캐릭터 프리셋을 생성해주세요. 그 다음 만들어진 프리셋 위에 마우스를 올리면 나타나는 '톱니바퀴 아이콘'을 눌러 캐릭터 창을 열어주세요.
+        </p>
+
+        <div class="detailed-info">
+            <p class="multi-lang" 
+               data-ko="프리셋은 원하시는 만큼 추가하실 수 있습니다! 각 프리셋마다 다른 캐릭터 모델과 성격을 설정할 수 있어요." 
+               data-en="You can add as many presets as you want! You can set different character models and personalities for each preset." 
+               data-ja="プリセットは好きなだけ追加できます！プリセットごとに異なるキャラクターモデルと性格を設定できます。" 
+               data-zh-Hans="您可以根据需要添加任意数量的预设！您可以为每个预设设置不同的角色模型和性格。" 
+               data-zh-Hant="您可以根據需要添加任意數量的預設！您可以為每個預設設置不同的角色模型和性格。">
+               프리셋은 원하시는 만큼 추가하실 수 있습니다! 각 프리셋마다 다른 캐릭터 모델과 성격을 설정할 수 있어요.
+            </p>
+        </div>
+
+        <img src="./image/AI_Step3.png" alt="Add Preset" style="max-width:100%; height:auto; border-radius: 8px; margin: 20px 0; border: 1px solid #424549;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <a class="page-nav multi-lang" href="ai-help-page2.html" data-ko="이전" data-en="Back" data-ja="戻る" data-zh-Hans="返回" data-zh-Hant="返回">이전</a>
+            <a class="page-nav multi-lang" href="ai-help-page4.html" data-ko="다음" data-en="Next" data-ja="次へ" data-zh-Hans="下一步" data-zh-Hant="下一步">다음</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const toggle=document.getElementById('help-level-toggle');
+            const langSel=document.getElementById('language-select');
+            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+
+            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+            langSel.value=savedLang;document.documentElement.lang=savedLang;
+
+            const applyLang=lang=>{
+                document.querySelectorAll('.multi-lang').forEach(el=>{
+                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
+                });
+            };
+            applyLang(savedLang);
+
+            toggle.addEventListener('change',()=>{
+                const v=toggle.checked?'detailed':'simple';
+                localStorage.setItem('desktopMaidHelpLevel',v);
+                document.body.classList.toggle('detailed-view',v==='detailed');
+            });
+            langSel.addEventListener('change',e=>{
+                const lang=e.target.value;
+                localStorage.setItem('desktopMaidLang',lang);
+                document.documentElement.lang=lang;
+                applyLang(lang);
+            });
+        });
+    </script>
+</body>
+</html>

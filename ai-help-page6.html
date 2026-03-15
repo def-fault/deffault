@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="multi-lang" data-ko="6. 화면 인식과 프리셋 공유" data-en="6. Screen Recognition & Sharing" data-ja="6. 画面認識とプリセット共有" data-zh-Hans="6. 屏幕识别与预设共享" data-zh-Hant="6. 屏幕識別與預設共享">6. 화면 인식과 프리셋 공유</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        html,body{height:auto;overflow-y:auto}
+        .container{padding:20px;max-width:900px;margin:auto}
+        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+        .toggle-switch input{opacity:0;width:0;height:0}
+        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+        input:checked + .slider{background:#409eff}
+        input:checked + .slider:before{transform:translateX(26px)}
+        .detailed-info{display:none}.simple-info{display:block}
+        body.detailed-view .detailed-info{display:block}
+        body.detailed-view .simple-info{display:none}
+        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
+        .multi-lang{white-space:pre-line;}
+    </style>
+</head>
+<body class="usage-body">
+    <div class="controllers">
+        <div class="help-level-selector">
+            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
+        </div>
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container usage-wrapper">
+        <h1 class="multi-lang" data-ko="6. 화면 인식과 프리셋 공유" data-en="6. Screen Recognition & Sharing" data-ja="6. 画面認識とプリセット共有" data-zh-Hans="6. 屏幕识别与预设共享" data-zh-Hant="6. 屏幕識別與預設共享">6. 화면 인식과 프리셋 공유</h1>
+        
+        <p class="simple-info multi-lang" 
+           data-ko="캐릭터가 당신의 화면을 볼 수 있게 하거나, 당신의 설정을 다른 사람과 공유할 수 있습니다." 
+           data-en="Let the character see your screen, or share your settings with others." 
+           data-ja="キャラクターにあなたの画面を見せることができ、また自分の設定を他の人と共有できます。" 
+           data-zh-Hans="让角色看到您的屏幕，或与其他用户共享您的设置。" 
+           data-zh-Hant="讓角色看到您的屏幕，或與其他用戶共享您的設置。">
+           캐릭터가 당신의 화면을 볼 수 있게 하거나, 당신의 설정을 다른 사람과 공유할 수 있습니다.
+        </p>
+
+        <div class="detailed-info">
+            <h2 class="multi-lang" data-ko="화면 인식" data-en="Screen Recognition" data-ja="画面認識" data-zh-Hans="屏幕识别" data-zh-Hant="屏幕識別">화면 인식</h2>
+            <p class="multi-lang" 
+               data-ko="화면 인식 기능을 켜면 캐릭터가 현재 당신이 보고 있는 창의 내용을 이해하고 대화에 참고합니다." 
+               data-en="Enabling screen recognition allows the character to understand the contents of the window you're viewing." 
+               data-ja="画面認識機能を有効にすると、キャラクターが現在見ているウィンドウの内容を理解し、会話の参考にします。" 
+               data-zh-Hans="启用屏幕识别功能后，角色可以理解您正在查看的窗口内容并在对话中参考。" 
+               data-zh-Hant="啟用屏幕識別功能後，角色可以理解您正在查看的窗口內容並在對話中參考。">
+               화면 인식 기능을 켜면 캐릭터가 현재 당신이 보고 있는 창의 내용을 이해하고 대화에 참고합니다.
+            </p>
+        </div>
+
+        <img src="./image/AI_Step6_1.png" alt="Screen Recognition" style="max-width:100%; height:auto; border-radius: 8px; margin: 20px 0; border: 1px solid #424549;">
+
+        <div class="detailed-info">
+            <h2 class="multi-lang" data-ko="프리셋 내보내기/불러오기" data-en="Import/Export Preset" data-ja="プリセットのインポート/エクスポート" data-zh-Hans="导入/导出预设" data-zh-Hant="導入/導出預設">프리셋 내보내기/불러오기</h2>
+            <p class="multi-lang" 
+               data-ko="당신이 정성껏 만든 캐릭터 프리셋을 파일로 내보내거나, 다른 사람이 만든 프리셋을 불러올 수 있습니다." 
+               data-en="Export the character presets you've carefully crafted to a file, or import presets created by others." 
+               data-ja="丹精込めて作成したキャラクタープリセットをファイルに書き出したり、他の人が作成したプリセットを読み込んだりできます。" 
+               data-zh-Hans="将您精心制作的角色预设导出为文件，或导入他人制作的预设。" 
+               data-zh-Hant="將您精心製作的角色預設導出為文件，或導入他人製作的預設。">
+               당신이 정성껏 만든 캐릭터 프리셋을 파일로 내보내거나, 다른 사람이 만든 프리셋을 불러올 수 있습니다.
+            </p>
+        </div>
+
+        <img src="./image/AI_Step6_2.png" alt="Preset Sharing" style="max-width:100%; height:auto; border-radius: 8px; margin: 20px 0; border: 1px solid #424549;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <a class="page-nav multi-lang" href="ai-help-page5.html" data-ko="이전" data-en="Back" data-ja="戻る" data-zh-Hans="返回" data-zh-Hant="返回">이전</a>
+            <a class="page-nav multi-lang" href="ai-help-page7.html" data-ko="다음" data-en="Next" data-ja="次へ" data-zh-Hans="下一步" data-zh-Hant="下一步">다음</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const toggle=document.getElementById('help-level-toggle');
+            const langSel=document.getElementById('language-select');
+            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+
+            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+            langSel.value=savedLang;document.documentElement.lang=savedLang;
+
+            const applyLang=lang=>{
+                document.querySelectorAll('.multi-lang').forEach(el=>{
+                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
+                });
+            };
+            applyLang(savedLang);
+
+            toggle.addEventListener('change',()=>{
+                const v=toggle.checked?'detailed':'simple';
+                localStorage.setItem('desktopMaidHelpLevel',v);
+                document.body.classList.toggle('detailed-view',v==='detailed');
+            });
+            langSel.addEventListener('change',e=>{
+                const lang=e.target.value;
+                localStorage.setItem('desktopMaidLang',lang);
+                document.documentElement.lang=lang;
+                applyLang(lang);
+            });
+        });
+    </script>
+</body>
+</html>

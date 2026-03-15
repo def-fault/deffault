@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="multi-lang" data-ko="2. 나를 캐릭터에게 소개하기" data-en="2. Introduce Yourself" data-ja="2. キャラクターへの自己紹介" data-zh-Hans="2. 向角色介绍自己" data-zh-Hant="2. 向角色介紹自己">2. 나를 캐릭터에게 소개하기</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        html,body{height:auto;overflow-y:auto}
+        .container{padding:20px;max-width:900px;margin:auto}
+        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+        .toggle-switch input{opacity:0;width:0;height:0}
+        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+        input:checked + .slider{background:#409eff}
+        input:checked + .slider:before{transform:translateX(26px)}
+        .detailed-info{display:none}.simple-info{display:block}
+        body.detailed-view .detailed-info{display:block}
+        body.detailed-view .simple-info{display:none}
+        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
+        .multi-lang{white-space:pre-line;}
+    </style>
+</head>
+<body class="usage-body">
+    <div class="controllers">
+        <div class="help-level-selector">
+            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
+        </div>
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container usage-wrapper">
+        <h1 class="multi-lang" data-ko="2. 나를 캐릭터에게 소개하기" data-en="2. Introduce Yourself" data-ja="2. 캐릭터への自己紹介" data-zh-Hans="2. 向角色介绍自己" data-zh-Hant="2. 向角色介紹自己">2. 나를 캐릭터에게 소개하기</h1>
+        
+        <p class="simple-info multi-lang" 
+           data-ko="메인 창 위쪽에 #프로필 아래 프로필 영역을 눌러보세요. 이곳은 캐릭터가 당신에 대해서 잘 알 수 있도록 유저 프로필을 설정할 수 있는 공간이에요." 
+           data-en="Click on the profile area under #Profile at the top of the main window. This is where you can set up your profile so the character can get to know you better." 
+           data-ja="メインウィンドウ上部の#プロフィールの下にあるプロフィールエリアをクリックしてください。ここでは、キャラクターがあなたのことをよく知ることができるように、ユーザープロフィールを設定できます。" 
+           data-zh-Hans="点击主窗口顶部 #配置文件 下方的配置文件区域。您可以在此处设置个人资料，以便角色更好地了解您。" 
+           data-zh-Hant="點擊主窗口頂部 #配置文件 下方的配置文件區域。您可以在此處設置個人資料，以便角色更好地了解您。">
+           메인 창 위쪽에 #프로필 아래 프로필 영역을 눌러보세요. 이곳은 캐릭터가 당신에 대해서 잘 알 수 있도록 유저 프로필을 설정할 수 있는 공간이에요.
+        </p>
+
+        <div class="detailed-info">
+            <h2 class="multi-lang" data-ko="프로필 메세지" data-en="Profile Message" data-ja="プロフィールメッセージ" data-zh-Hans="个人资料消息" data-zh-Hant="個人資料消息">프로필 메세지</h2>
+            <p class="multi-lang" 
+               data-ko="'유저 상태'에 따라 프로필 메세지를 다르게 설정할 수 있어요." 
+               data-en="You can set different profile messages depending on your 'User Status'." 
+               data-ja="「ユーザー状態」に応じて、異なるプロフィールメッセージを設定できます。" 
+               data-zh-Hans="您可以根据“用户状态”设置不同的个人资料消息。" 
+               data-zh-Hant="您可以根據“用戶狀態”設置不同的個人資料消息。">
+               '유저 상태'에 따라 프로필 메세지를 다르게 설정할 수 있어요.
+            </p>
+
+            <h2 class="multi-lang" data-ko="자기 소개" data-en="Self-Introduction" data-ja="自己紹介" data-zh-Hans="自我介绍" data-zh-Hant="自我介紹">자기 소개</h2>
+            <p class="multi-lang" 
+               data-ko="당신에 대한 이야기를 자유롭게 적어주세요. 캐릭터는 이 내용을 기억하고 대화에 활용할 거예요." 
+               data-en="Feel free to write about yourself. The character will remember this and use it in conversations." 
+               data-ja="あなた自身について自由に書いてください。キャラクターはこれを記憶し、会話에 活用します。" 
+               data-zh-Hans="随意写下关于你自己的信息。角色会记住这一点并在对话中使用。" 
+               data-zh-Hant="隨意寫下關於你自己的信息。角色會記住這一點並在對話中使用。">
+               당신에 대한 이야기를 자유롭게 적어주세요. 캐릭터는 이 내용을 기억하고 대화에 활용할 거예요.
+            </p>
+        </div>
+
+        <img src="./image/AI_Step2.png" alt="User Profile" style="max-width:100%; height:auto; border-radius: 8px; margin: 20px 0; border: 1px solid #424549;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <a class="page-nav multi-lang" href="ai-help-page1.html" data-ko="이전" data-en="Back" data-ja="戻る" data-zh-Hans="返回" data-zh-Hant="返回">이전</a>
+            <a class="page-nav multi-lang" href="ai-help-page3.html" data-ko="다음" data-en="Next" data-ja="次へ" data-zh-Hans="下一步" data-zh-Hant="下一步">다음</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const toggle=document.getElementById('help-level-toggle');
+            const langSel=document.getElementById('language-select');
+            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+
+            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+            langSel.value=savedLang;document.documentElement.lang=savedLang;
+
+            const applyLang=lang=>{
+                document.querySelectorAll('.multi-lang').forEach(el=>{
+                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
+                });
+            };
+            applyLang(savedLang);
+
+            toggle.addEventListener('change',()=>{
+                const v=toggle.checked?'detailed':'simple';
+                localStorage.setItem('desktopMaidHelpLevel',v);
+                document.body.classList.toggle('detailed-view',v==='detailed');
+            });
+            langSel.addEventListener('change',e=>{
+                const lang=e.target.value;
+                localStorage.setItem('desktopMaidLang',lang);
+                document.documentElement.lang=lang;
+                applyLang(lang);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Maid - Usage</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="usage-body">
+    <div class="usage-wrapper">
+        <div class="language-selector">
+            <label for="language-select" id="lang-label" data-key="language_select_label">언어 선택:</label>
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+
+        <div class="usage-content">
+            <div class="split-section" id="desktop-interaction-section">
+                <a href="desktop-interaction-ko.html" id="desktop-interaction-link">
+                    <img src="./images/desktop-interaction.png" alt="Desktop Interaction" class="bg-image">
+                    <div class="overlay-text" data-key="desktop_interaction">데스크탑 인터렉션</div>
+                </a>
+            </div>
+            <div class="split-section" id="ai-chat-interaction-section">
+                <a href="ai-help-page1.html" id="ai-chat-interaction-link">
+                    <img src="./images/ai-chat-interaction.png" alt="AI Chat Interaction" class="bg-image">
+                    <div class="overlay-text" data-key="ai_chat_interaction">AI 채팅 인터렉션</div>
+                </a>
+            </div>
+        </div>
+
+        <footer class="usage-footer">
+            <p><a href="index.html" data-key="back_to_main">메인으로 돌아가기</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const translations = {
+            ko: {
+                language_select_label: '언어 선택:',
+                desktop_interaction: '데스크탑 인터렉션',
+                ai_chat_interaction: 'AI 채팅 인터렉션',
+                back_to_main: '메인으로 돌아가기'
+            },
+            en: {
+                language_select_label: 'Select Language:',
+                desktop_interaction: 'Desktop Interaction',
+                ai_chat_interaction: 'AI Chat Interaction',
+                back_to_main: 'Back to Main'
+            },
+            ja: {
+                language_select_label: '言語選択:',
+                desktop_interaction: 'デスクトップ・インタラクション',
+                ai_chat_interaction: 'AIチャット・インタラクション',
+                back_to_main: 'メインに戻る'
+            },
+            "zh-Hans": {
+                language_select_label: '选择语言:',
+                desktop_interaction: '桌面交互',
+                ai_chat_interaction: 'AI 聊天交互',
+                back_to_main: '返回主页'
+            },
+            "zh-Hant": {
+                language_select_label: '選擇語言:',
+                desktop_interaction: '桌面交互',
+                ai_chat_interaction: 'AI 聊天交互',
+                back_to_main: '返回主頁'
+            }
+        };
+
+        const languageSelect = document.getElementById('language-select');
+        const langLabel = document.getElementById('lang-label');
+        const desktopLink = document.getElementById('desktop-interaction-link');
+        const aiLink = document.getElementById('ai-chat-interaction-link');
+
+        function updateContent(lang) {
+            document.documentElement.lang = lang;
+            
+            // Update labels and text using data-key
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update links based on language
+            desktopLink.href = `inter-help-page1.html`;
+            // AI help pages are numbered, page1 is the entry
+            // (Assuming other languages have their own pages or just the first page is generic)
+            // For now, let's stick to the structure found in the commit or adjust if specific lang pages exist
+            // If ai-help-page1.html is multi-lang, we keep it, otherwise update if needed.
+        }
+
+        languageSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            localStorage.setItem('desktopMaidLang', lang);
+            updateContent(lang);
+        });
+
+        // Initialize
+        const savedLang = localStorage.getItem('desktopMaidLang') || 'ko';
+        languageSelect.value = savedLang;
+        updateContent(savedLang);
+    </script>
+</body>
+</html>

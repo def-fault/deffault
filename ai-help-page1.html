@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="multi-lang" data-ko="1. AI 대화 활성화하기" data-en="1. Activate AI Chat" data-ja="1. AI対話の有効化" data-zh-Hans="1. 激活 AI 对话" data-zh-Hant="1. 激活 AI 對話">1. AI 대화 활성화하기</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        html,body{height:auto;overflow-y:auto}
+        .container{padding:20px;max-width:900px;margin:auto}
+        .controllers{display:flex;justify-content:flex-end;align-items:center;gap:25px;height:60px;width:100%;padding:0 40px;background:#23272a;border-bottom:1px solid #424549;box-sizing:border-box}
+        .controllers .language-selector,.controllers .help-level-selector{background:none;border:none;display:flex;align-items:center;gap:8px}
+        .toggle-switch{position:relative;display:inline-block;width:50px;height:24px}
+        .toggle-switch input{opacity:0;width:0;height:0}
+        .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4f545c;border-radius:24px}
+        .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%}
+        input:checked + .slider{background:#409eff}
+        input:checked + .slider:before{transform:translateX(26px)}
+        .detailed-info{display:none}.simple-info{display:block}
+        body.detailed-view .detailed-info{display:block}
+        body.detailed-view .simple-info{display:none}
+        a.page-nav{display:inline-block;margin-top:30px;text-decoration:none;background:#eee;padding:10px 20px;border-radius:6px; color: #333;}
+        .multi-lang{white-space:pre-line;}
+    </style>
+</head>
+<body class="usage-body">
+    <div class="controllers">
+        <div class="help-level-selector">
+            <span class="multi-lang" data-ko="간단" data-en="Simple" data-ja="簡易" data-zh-Hans="简单" data-zh-Hant="簡單">간단</span>
+            <label class="toggle-switch"><input type="checkbox" id="help-level-toggle"><span class="slider"></span></label>
+            <span class="multi-lang" data-ko="자세히" data-en="Detailed" data-ja="詳細" data-zh-Hans="详细" data-zh-Hant="詳細">자세히</span>
+        </div>
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh-Hans">简体中文</option>
+                <option value="zh-Hant">繁體中文</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container usage-wrapper">
+        <h1 class="multi-lang" data-ko="1. AI 대화 활성화하기" data-en="1. Activate AI Chat" data-ja="1. AI対話の有効化" data-zh-Hans="1. 激活 AI 对话" data-zh-Hant="1. 激活 AI 對話">1. AI 대화 활성화하기</h1>
+        
+        <p class="simple-info multi-lang" 
+           data-ko="캐릭터 AI 대화 기능을 활성화하는데 두 가지 방법이 있어요. 각각 Gemini API를 사용하는 방법과 Ollama를 사용하는 방법이에요." 
+           data-en="There are two ways to activate the character AI chat function: using the Gemini API or using Ollama." 
+           data-ja="キャラクターAI対화機能を有効にするには、Gemini APIを使用する方法とOllamaを使用する方法の2つがあります。" 
+           data-zh-Hans="激活角色 AI 对话功能有两种方法：使用 Gemini API 或使用 Ollama。" 
+           data-zh-Hant="激活角色 AI 對話功能有兩種方法：使用 Gemini API 或使用 Ollama。">
+           캐릭터 AI 대화 기능을 활성화하는데 두 가지 방법이 있어요. 각각 Gemini API를 사용하는 방법과 Ollama를 사용하는 방법이에요.
+        </p>
+
+        <div class="detailed-info">
+            <h2 class="multi-lang" data-ko="Gemini API 사용하기" data-en="Using Gemini API" data-ja="Gemini APIを使用する" data-zh-Hans="使用 Gemini API" data-zh-Hant="使用 Gemini API">Gemini API 사용하기</h2>
+            <p class="multi-lang" 
+               data-ko="Google AI Studio에서 Gemini API 키를 발급받아 환경설정에서 입력해주세요." 
+               data-en="Get a Gemini API key from Google AI Studio and enter it in the settings." 
+               data-ja="Google AI StudioからGemini APIキーを取得し、設定に入力してください。" 
+               data-zh-Hans="从 Google AI Studio 获取 Gemini API 密钥并在设置中输入。" 
+               data-zh-Hant="從 Google AI Studio 獲取 Gemini API 密鑰並在設置中輸入。">
+               Google AI Studio에서 Gemini API 키를 발급받아 환경설정에서 입력해주세요.
+            </p>
+        </div>
+
+        <img src="./image/AI_Step1.png" alt="Gemini Setup" style="max-width:100%; height:auto; border-radius: 8px; margin: 20px 0; border: 1px solid #424549;">
+
+        <div class="detailed-info">
+            <h2 class="multi-lang" data-ko="Ollama 사용하기" data-en="Using Ollama" data-ja="Ollamaを使用する" data-zh-Hans="使用 Ollama" data-zh-Hant="使用 Ollama">Ollama 사용하기</h2>
+            <p class="multi-lang" 
+               data-ko="윈도우에 Ollama를 설치한 후 로컬 모델을 설정할 수 있습니다." 
+               data-en="Install Ollama on Windows to use local models." 
+               data-ja="WindowsにOllamaをインストールして、ローカルモデルを使用できます。" 
+               data-zh-Hans="在 Windows 上安装 Ollama 以使用本地模型。" 
+               data-zh-Hant="在 Windows 上安裝 Ollama 以使用本地模型。">
+               윈도우에 Ollama를 설치한 후 로컬 모델을 설정할 수 있습니다.
+            </p>
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+            <a class="page-nav multi-lang" href="desktop-maid-usage.html" data-ko="이전" data-en="Back" data-ja="戻る" data-zh-Hans="返回" data-zh-Hant="返回">이전</a>
+            <a class="page-nav multi-lang" href="ai-help-page2.html" data-ko="다음" data-en="Next" data-ja="次へ" data-zh-Hans="下一步" data-zh-Hant="下一步">다음</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const toggle=document.getElementById('help-level-toggle');
+            const langSel=document.getElementById('language-select');
+            const savedView=localStorage.getItem('desktopMaidHelpLevel')||'simple';
+            const savedLang=localStorage.getItem('desktopMaidLang')||'ko';
+
+            if(savedView==='detailed'){document.body.classList.add('detailed-view');toggle.checked=true;}
+            langSel.value=savedLang;document.documentElement.lang=savedLang;
+
+            const applyLang=lang=>{
+                document.querySelectorAll('.multi-lang').forEach(el=>{
+                    const txt=el.getAttribute(`data-${lang}`);if(txt!==null)el.textContent=txt;
+                });
+            };
+            applyLang(savedLang);
+
+            toggle.addEventListener('change',()=>{
+                const v=toggle.checked?'detailed':'simple';
+                localStorage.setItem('desktopMaidHelpLevel',v);
+                document.body.classList.toggle('detailed-view',v==='detailed');
+            });
+            langSel.addEventListener('change',e=>{
+                const lang=e.target.value;
+                localStorage.setItem('desktopMaidLang',lang);
+                document.documentElement.lang=lang;
+                applyLang(lang);
+            });
+        });
+    </script>
+</body>
+</html>
