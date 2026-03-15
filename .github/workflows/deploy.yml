@@ -2,14 +2,28 @@ name: Deploy to GitHub Pages
 
 on:
   push:
+<<<<<<< HEAD
     branches:
       - main
+=======
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+>>>>>>> 304e39c7f7432c5cfb3df171cb124b11677aa419
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+<<<<<<< HEAD
+=======
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+>>>>>>> 304e39c7f7432c5cfb3df171cb124b11677aa419
 jobs:
   deploy:
     environment:
@@ -24,8 +38,12 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+<<<<<<< HEAD
           # Upload the entire repository content
           path: '.'
+=======
+          path: "."
+>>>>>>> 304e39c7f7432c5cfb3df171cb124b11677aa419
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
